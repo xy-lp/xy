@@ -1,0 +1,204 @@
+<!--head start-->
+<include file="Public/head"/>
+<!--head end-->
+
+<body>
+    <div id="wrapper">
+
+         <!--left start-->
+		 <include file="Public/left" />
+    	<!--left end-->
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+
+             <!--top start-->
+			 <include file="Public/top" />
+         	<!--top end-->
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>类别管理</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">主页</a>
+                        </li>
+                        <li>
+                            <a>类别管理</a>
+                        </li>
+                        <li>
+                            <strong>添加类别</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                
+                <div class="row"> 
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>添加类别</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <form class="form-horizontal m-t" id="signupForm">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">名称：</label>
+                                        <div class="col-sm-4">
+                                            <input id="firstname" name="firstname" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">父级：</label>
+                                        <div class="col-sm-4">
+                                           	<select class="form-control m-b" name="pid">
+                                                <option>选项 1</option>
+                                                <option>选项 2</option>
+                                                <option>选项 3</option>
+                                                <option>选项 4</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">描述：</label>
+                                        <div class="col-sm-4">
+                                        	<textarea class="form-control" name="" cols="" rows="" class="valid"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">排序：</label>
+                                        <div class="col-sm-4">
+                                            <input id="lastname" name="lastname" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">是否显示：</label>
+                                        <div class="col-sm-4" style="padding-top:7px;">
+                                                    <input type="radio"  checked="" value="1" id="display" name="display" class="valid">是
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio"  value="2" id="display" name="display" class="valid">否
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-8 col-sm-offset-3">
+                                            <button class="btn btn-primary" type="submit">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+		
+			<!--footer start-->
+			<include file="Public/footer" />
+			<!--footer end-->
+
+        </div>
+    </div>
+
+
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/hplus.js?v=2.2.0"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+    <script>
+        //以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
+        $.validator.setDefaults({
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            success: function (element) {
+                element.closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+            errorElement: "span",
+            errorClass: "help-block m-b-none",
+            validClass: "help-block m-b-none"
+
+
+        });
+
+         //以下为官方示例
+        $().ready(function () {
+            // validate the comment form when it is submitted
+            $("#commentForm").validate();
+
+            // validate signup form on keyup and submit
+            $("#signupForm").validate({
+                rules: {
+                    firstname: "required",
+                    lastname: "required",
+                    username: {
+                        required: true,
+                        minlength: 2
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    confirm_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    topic: {
+                        required: "#newsletter:checked",
+                        minlength: 2
+                    },
+                    agree: "required"
+                },
+                messages: {
+                    firstname: "请输入你的姓",
+                    lastname: "请输入您的名字",
+                    username: {
+                        required: "请输入您的用户名",
+                        minlength: "用户名必须两个字符以上"
+                    },
+                    password: {
+                        required: "请输入您的密码",
+                        minlength: "密码必须5个字符以上"
+                    },
+                    confirm_password: {
+                        required: "请再次输入密码",
+                        minlength: "密码必须5个字符以上",
+                        equalTo: "两次输入的密码不一致"
+                    },
+                    email: "请输入您的E-mail",
+                    agree: "必须同意协议后才能注册"
+                }
+            });
+
+            // propose username by combining first- and lastname
+            $("#username").focus(function () {
+                var firstname = $("#firstname").val();
+                var lastname = $("#lastname").val();
+                if (firstname && lastname && !this.value) {
+                    this.value = firstname + "." + lastname;
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

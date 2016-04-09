@@ -28,8 +28,8 @@ return array(
 
     //自定义模版常量
     'TMPL_PARSE_STRING'     =>  array(
-        '__ADMIN__'         =>  '/Public/default/admin/',
-        '__HOME__'          =>  '/Public/default/home/',
+        '__ADMIN__'         =>  '/Public/default/admin',
+        '__HOME__'          =>  '/Public/default/home',
     ),
 
     //自定义类库Library目录
@@ -37,7 +37,5 @@ return array(
            'Library'        =>  APP_PATH.'Library', 
     ),
 
-    //分页
-    'PAGE_SIZE'             =>  10,
 
 );

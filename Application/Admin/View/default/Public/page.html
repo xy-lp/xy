@@ -1,20 +1,21 @@
 <div class="row">
 	<div class="col-sm-5">
-		<div class="dataTables_info" style="margin-top:30px">
-			共<i><?php echo $page['count']?></i>条记录，当前显示第&nbsp;<i><?php echo $page['page_id']?>&nbsp;</i>页
+		<div class="dataTables_info">
+			<input type="hidden" id="page_count" value="<?php echo $page['page_count']?>">
+			共<i id="count"><?php echo $page['count']?></i>条记录，当前显示第&nbsp;<i id="page_id"><?php echo $page['page_id']?>&nbsp;</i>页
 		</div>
 	</div>
 	<div class="col-sm-7" align="right">
 		<div class="dataTables_paginate paging_simple_numbers">
 			<ul class="pagination">
-				<li class="paginate_button <?php if($page['page_id']==1) echo 'disabled'?> ">
-					<a href="__SELF__/page_id/<?php echo $page['page_id']-1?>">上一页</a>
+				<li class="paginate_button prev <?php if($page['page_id']==1) echo 'disabled'?> ">
+					<a href="javascript:;">上一页</a>
 				</li>
 				<?php for($i=1;$i<=$page['page_count'];$i++){?>
-					<li class="paginate_button <?php if($page['page_id']==$i) echo 'active'?>"><a href="__SELF__/page_id/<?php echo $i?>"><?php echo $i?></a></li>
+					<li class="paginate_button page <?php if($page['page_id']==$i) echo 'active'?>"><a href="javascript:;"><?php echo $i;?></a></li>
 				<?php }?>
-				<li class="paginate_button <?php if($page['page_id']==$page['page_count']) echo 'disabled'?>">
-					<a href="__SELF__/page_id/<?php echo $page['page_id']+1?>">下一页</a>
+				<li class="paginate_button next <?php if($page['page_id']==$page['page_count']) echo 'disabled'?>">
+					<a href="javascript:;">下一页</a>
 				</li>
 			</ul>
 		</div>

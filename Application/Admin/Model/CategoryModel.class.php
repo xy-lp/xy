@@ -28,7 +28,7 @@ class CategoryModel extends Model{
     protected $_validate=array(
         array('cat_name','require','分类名称不能为空!'),
         array('cat_name','0,50','分类名称应为50字以内!',0,'length',3),
-        array('cat_name','','分类名称已存在!',1,'unique','self::MODEL_INSERT'),
+        array('cat_name','','分类名称已存在!',0,'unique',1),
         array('sort_order','number','排序值应为数字!'),
         array('is_show','array(0,1)',0,'请选择是否显示',3,'in'),
     );
@@ -36,7 +36,7 @@ class CategoryModel extends Model{
     /*
      *获取分类列表
      */
-    public function get_catdata(){
+    public function get_cat_data(){
         //定义参数
         $config=array(
             'table_name' =>  'Category',    //表名

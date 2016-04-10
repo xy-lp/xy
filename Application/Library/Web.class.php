@@ -56,9 +56,8 @@ class Web{
        )
      非必要参数：
      $config=array(
-         'status'    => 'is_show',      where条件的参数，如：status、is_show字段
-         'is_show    => '0',            键名和$config['status']的值相关，值为where条件
-         'field'     => array('cat_id,cat_pid')     要查询的字段名，如不存在查询所有
+         'where'    => array()   查询的条件
+         'field'    => ''        要查询的字段名，如不存在查询所有
      )
      *************************************
      *@return $error Or array() Or $tree 生成好的树结构二维数组 
@@ -68,10 +67,8 @@ class Web{
         $error=$this->_treeAuth($config);
         //如果没错误则执行生成树形结构，不然就返回错误
         if(empty($error)){
-            //获取状态的字段名
-            $status=empty($config['status'])? $this->status_field : $config['status'];
-            //获取查询条件('是否显示，不存在则查询所有')
-            $where=empty($config[$status])? '1' : array($status=>$config[$status]);
+            //获取查询条件
+            $where=empty($config['where'])? '1' : $config['where'];
             //判断要查询的字段名（没有默认查找所有字段）
             $field=empty($config['field'])? $this->default_field : $config['field'];
             //查询数据
@@ -100,7 +97,8 @@ class Web{
      *@return array 子级的集合 
      */
     private function _getChild($list,$id){
-        static $ids=array();
+        static $ids=array();    //静态变量，防止递归时变量被覆盖
+        //循环数组，取出父类等于id
         foreach($list as $v){
             if($v[$this->tree_pid] == $id){
                 $ids[]=$v;

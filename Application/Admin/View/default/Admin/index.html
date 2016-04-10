@@ -96,6 +96,9 @@
                             <li>
                                 <a class="J_menuItem" href="__MODULE__/Source/index">出处列表</a>
                             </li>
+							<li>
+								<a href="__MODULE__/Data/export_data">导出数据</a>
+							</li>
                         </ul>
                     </li>
 
@@ -202,6 +205,7 @@
                 </nav>
             </div>
             <div class="row content-tabs">
+				<a href="javascript:;" class="roll-nav roll-right J_tabExit"><i class="fa fa_return "></i>返回列表</a>
                 <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
                 </button>
                 <nav class="page-tabs J_menuTabs">
@@ -228,7 +232,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe index" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2015-2016 <a href="__MODULE__/admin/admin" target="_blank">月格格后援会~~</a>
@@ -657,15 +661,34 @@
 <script>
     $(document).ready(function(){
         $('.J_tabCloseAll').bind('click',function(){
-            $('.J_iframe').attr('style',null);
+            $('.page-tabs-content').html('');
+			$('.page-tabs-content').append(
+				'<a href="javascript:;" class="active J_menuTab active" id="Tab_index">首页</a>'			
+			);
+            var frame=$('.J_iframe .active');
+			iframe_show(frame);	
         });
 
         $('#Tab_index').bind('click',function(){
-            var frame=$('.J_iframe .active');
+			var frame=$('.J_iframe:not(.index)');
+			iframe_show(frame);
+        });
+/*
+		$('.J_menuItem').bind('click',function(){
+			var item=$(this).attr('href');
+			var frame=$('.J_iframe .active');
+			console.log(frame);
+			frame.attr('src',item+'?v=4.0');
+			frame.attr('data-id',item);
+
+		});
+*/
+    });
+
+	function iframe_show(frame){
             frame.attr('style','display:none');
             $('.J_iframe').eq(0).attr('style',null);
-        })
-    });
+	}
 </script>
 
 </body>

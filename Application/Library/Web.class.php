@@ -73,6 +73,7 @@ class Web{
             $field=empty($config['field'])? $this->default_field : $config['field'];
             //查询数据
             $list=M($config['table_name'])->field($field)->where($where)->select();
+            //p($list);
             if(!empty($list)){
                 //将参数附值给属性，方便其他方法的使用
                 $this->tree_pid  =  $config['tree_pid'];

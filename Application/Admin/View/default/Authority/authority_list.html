@@ -63,7 +63,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>类别列表</h5>
+                        <h5>权限列表</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -85,7 +85,7 @@
 
                     <div class="ibox-content">
                         <div class="">
-                            <a href="__URL__/add" class="btn btn-primary ">添加类型</a>
+                            <a href="__URL__/add" class="btn btn-primary ">添加权限</a>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -113,9 +113,10 @@
                             <thead>
                                 <tr>
                                     <th>编号</th>
-                                    <th>类别名称</th>
-                                    <th>类别描述</th>
-                                    <th>是否显示</th>
+                                    <th>权限名称</th>
+                                    <th>路径</th>
+                                    <th>父类编号</th>
+                                    <th>状态</th>
                                     <th>排序值</th>
                                     <th style="width:15%">操作</th>
                                 </tr>
@@ -124,16 +125,17 @@
                             <!--data_table start-->
                             <?php foreach($list as $v):?>
                                 <tr class="gradeA">
-                                    <td><?php echo $v['cat_id']?></td>
-                                    <td><?php echo str_repeat('--',$v['deep']*4),$v['cat_name']?></td>
-                                    <td><?php echo $v['cat_desc']?></td>
+                                    <td><?php echo $v['authority_id']?></td>
+                                    <td><?php echo str_repeat('--',$v['deep']*4),$v['authority_name']?></td>
+                                    <td><?php echo $v['url']?></td>
+                                    <td><?php echo $v['pid']?></td>
                                     <td>
-                                        <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_show'])?'yes':'no';?>.gif"/>
+                                        <img alt="" src="__ADMIN__/img/<?php echo empty($v['status'])?'yes':'no';?>.gif"/>
                                     </td>
                                     <td><?php echo $v['sort_order']?></td>
                                     <td>
-										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['cat_id']?>"><i class="fa"></i>修改</a>
-										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['cat_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
+										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['authority_id']?>"><i class="fa"></i>修改</a>
+										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['authority_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>

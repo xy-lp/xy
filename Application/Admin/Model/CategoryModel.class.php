@@ -71,8 +71,8 @@ class CategoryModel extends Model{
         //定义参数
         $param=array(
             'id'    => $cat_id,
-            'is_show'=> 0,
-            'field'  => 'cat_id,cat_name,cat_pid',
+            'where' => array('is_show'=>0),
+            'field' => 'cat_id,cat_name,cat_pid',
         );
         return $this->Tree($param);
     }

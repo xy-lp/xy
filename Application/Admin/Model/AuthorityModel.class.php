@@ -33,8 +33,8 @@ class AuthorityModel extends Model{
      *自动验证
      */
     protected $_validate=array(
-        array('authority_name','require','分类名称不能为空!'),
-        array('authority_name','0,50','分类名称应为50字以内!',0,'length',3),
+        array('authority_name','require','权限名称不能为空!'),
+        array('authority_name','0,50','权限名称应为50字以内!',0,'length',3),
        // array('cat_name','','分类名称已存在!',0,'unique','self::MODEL_INSERT'),
         array('sort_order','number','排序值应为数字!'),
         array('status','array(0,1)',0,'请选择状态',3,'in'),

@@ -58,7 +58,9 @@ class ArticleController extends BaseController{
     public function del($id){
         $atricle_id=(int)$id;
         $model=D('Article');
-        if($model->delete($atricle_id))
+        $data['atricle_id']=$atricle_id;
+        $data['status']=2;
+        if($model->save($data))
             $this->success('删除成功',U('index'),1);
         else
             $this->error('删除失败',U('index'),1);
@@ -97,5 +99,57 @@ class ArticleController extends BaseController{
         $this->assign('cat_list',$cat_list);
         //p($info);
         $this->display('article_edit');
+    }
+
+    /*
+     *文章回收站
+     */
+    public function recycle($page_id=1){
+        $list=D('article')->where(array('status'=>2))->select();
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            foreach($data['list'] as $k=>$v){
+                $data['list'][$k]['status_img']=empty($v['status'])?'yes':'no';
+                $data['list'][$k]['show_img']=empty($v['is_show'])?'yes':'no';
+                $data['list'][$k]['discuss_img']=empty($v['is_discuss'])?'yes':'no';
+                $data['list'][$k]['top_img']=empty($v['is_top'])?'yes':'no';
+            }
+            echo json_encode($data);
+            exit;
+        }
+        $data=data_page($list,$page_id);
+        $this->assign('list',$data['list']);
+        $this->assign('page',$data['page']);
+        $this->display('recycle_list');
+    }
+
+    /*
+     *回收站还原
+     */
+    public function reduction($id){
+        $atricle_id=(int)$id;
+        $model=D('Article');
+        $data=array(
+            'atriclei_id'=>$atricle_id,
+            'status' =>1,
+        );
+        if($model->save($data))
+            $this->success('还原成功',U('index'),1);
+        else
+            $this->error('还原失败',U('index'),1);
+        exit; 
+    }
+
+    /*
+     *回收站删除
+     */
+    public function recycle_del($id){
+        $atricle_id=(int)$id;
+        $model=D('Article');
+        if($model->delete($atricle_id))
+            $this->success('删除成功',U('index'),1);
+        else
+            $this->error('删除失败',U('index'),1);
     }
 }

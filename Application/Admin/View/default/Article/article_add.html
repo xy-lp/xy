@@ -46,10 +46,10 @@
                                 <div class="col-sm-4">
 									<select class="select1" name="sre"><option value="0">请选择出处</option>
 										<?php foreach($sre_list as $v): ?>
-										<option value="<?php echo $v['sre_id']?>"><?php echo '---',$v['sre_name'],'---'?></o    ption>                                                                                                
+										<option value="<?php echo $v['sre_id']?>"><?php echo '---',$v['sre_name'],'---'?></option>
 										<?php endforeach; ?>
 									 </select>
-                                    <input id="name" name="name" class="form-control" type="text">
+                                    <input id="title" name="title" class="form-control" type="text">
                                     <!--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 这里写点提示的内容</span>-->
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">缩略图：</label>
                                 <div class="col-sm-4">
-                                    <input type="FILE" name="imgpath">
+                                    <input type="FILE" name="img_path">
                                 </div>
                             </div>
                             <div class="form-group">

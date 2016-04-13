@@ -20,6 +20,9 @@ define('APP_DEBUG',True);
 // 定义应用目录
 define('APP_PATH','./Application/');
 
+//静态资源目录
+define('__PUBLIC__','./Public/');
+
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 

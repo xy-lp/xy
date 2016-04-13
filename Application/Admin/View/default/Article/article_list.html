@@ -135,7 +135,7 @@
                                     <td> <img alt="" src="__ADMIN__/img/<?php echo empty($v['status'])?'yes':'no';?>.gif"/> </td>
                                     <td> <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_show'])?'yes':'no';?>.gif"/> </td>
                                     <td> <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_discuss'])?'yes':'no';?>.gif"/> </td>
-                                    <td> <img alt="" src="__ADMIN__/img/<?php echo !empty($v['is_top'])?'yes':'no';?>.gif"/> </td>
+                                    <td> <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_top'])?'yes':'no';?>.gif"/> </td>
                                     <td><?php echo $v['hits']?></td>
                                     <td>
 										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['article_id']?>"><i class="fa"></i>修改</a>
@@ -221,17 +221,22 @@
 					$.each(list,function(i,item){
 						$("#content").append(
                                "<tr class='gradeA'>"
-                                    +"<td>"+item.cat_id+"</td>"
-                                    +"<td>"+item.sname+"</td>"
-									+"<td>"+item.cat_desc+"</td>"
+                                    +"<td>"+item.article_id+"</td>"
+                                    +"<td>"+item.title+"</td>"
+									+"<td>"+item.author+"</td>"
+									+"<td>"+item.cat_id+"</td>"
 									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.status_img+".gif'/></td>"
-									+"<td>"+item.sort_order+"</td>"
+									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.show_img+".gif'/></td>"
+									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.discuss_img+".gif'/></td>"
+									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.top_img+".gif'/></td>"
+									+"<td>"+item.hits+"</td>"
                                     +"<td>"
-										+'<a class="btn btn-white" href="__URL__/edit/id/'+item.cat_id+'"><i class="fa"></i>修改</a>'
-										+'<a class="btn btn-white" href="__URL__/del/id/'+item.cat_id+'"><i class="fa"></i>删除</a>'
+										+'<a class="btn btn-white" href="__URL__/edit/id/'+item.article_id+'"><i class="fa"></i>修改</a>'
+										+'<a class="btn btn-white" href="__URL__/del/id/'+item.article_id+'"><i class="fa"></i>删除</a>'
                                     +"</td>"
                                +"</tr>"
 								);
+
 					});
                     //修改总记录数
 					$('#count').text(page.count);

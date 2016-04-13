@@ -3,7 +3,7 @@ return array(
     //'配置项'=>'配置值'
     //自定义路径
     'BASE_PATH'             =>  $_SERVER['DOCUMENT_ROOT'].'/',     //根目录 
-    'UPLOAD_PATH'           =>  BASE_PATH.'Public/Upload/',
+    'UPLOAD_PATH'           =>  __PUBLIC__.'Upload/',
 
     //数据库配置
     'DB_TYPE'               =>  'mysqli',           //数据库类型

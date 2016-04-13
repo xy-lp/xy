@@ -201,7 +201,6 @@
 				if(page_id > page_count){
 					return false;
 				}
-                console.log(page_id);
                 //执行翻页操作
 				ajax(page_id,'next');
             });
@@ -218,14 +217,15 @@
 					$.each(list,function(i,item){
 						$("#content").append(
                                "<tr class='gradeA'>"
-                                    +"<td>"+item.cat_id+"</td>"
+                                    +"<td>"+item.authority_id+"</td>"
                                     +"<td>"+item.sname+"</td>"
-									+"<td>"+item.cat_desc+"</td>"
+									+"<td>"+item.url+"</td>"
+									+"<td>"+item.pid+"</td>"
 									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.status_img+".gif'/></td>"
 									+"<td>"+item.sort_order+"</td>"
                                     +"<td>"
-										+'<a class="btn btn-white" href="__URL__/edit/id/'+item.cat_id+'"><i class="fa"></i>修改</a>'
-										+'<a class="btn btn-white" href="__URL__/del/id/'+item.cat_id+'"><i class="fa"></i>删除</a>'
+										+'<a class="btn btn-white" href="__URL__/edit/id/'+item.authority_id+'"><i class="fa"></i>修改</a>'
+										+'<a class="btn btn-white" href="__URL__/del/id/'+item.authority_id+'"><i class="fa"></i>删除</a>'
                                     +"</td>"
                                +"</tr>"
 								);

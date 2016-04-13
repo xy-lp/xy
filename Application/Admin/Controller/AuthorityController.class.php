@@ -7,6 +7,16 @@ class AuthorityController extends BaseController{
      */
     public function index($page_id=1){
         $list=D('Authority')->get_rule_data();
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            foreach($data['list'] as $k=>$v){
+                $data['list'][$k]['sname']=str_repeat('--',$v['deep']*4).$v['authority_name'];
+                $data['list'][$k]['status_img']=empty($v['status'])?'yes':'no';
+            }
+            echo json_encode($data);
+            exit;
+        }
         $data=data_page($list,$page_id);
         $this->assign('list',$data['list']);
         $this->assign('page',$data['page']);

@@ -56,9 +56,9 @@ class ArticleController extends BaseController{
 	 *删除文章
  	 */
     public function del($id){
-        $atricle_id=(int)$id;
+        $article_id=(int)$id;
         $model=D('Article');
-        $data['atricle_id']=$atricle_id;
+        $data['article_id']=$article_id;
         $data['status']=2;
         if($model->save($data))
             $this->success('删除成功',U('index'),1);
@@ -128,16 +128,16 @@ class ArticleController extends BaseController{
      *回收站还原
      */
     public function reduction($id){
-        $atricle_id=(int)$id;
+        $article_id=(int)$id;
         $model=D('Article');
         $data=array(
-            'atriclei_id'=>$atricle_id,
+            'article_id'=>$article_id,
             'status' =>1,
         );
         if($model->save($data))
-            $this->success('还原成功',U('index'),1);
+            $this->success('还原成功',U('recycle'),1);
         else
-            $this->error('还原失败',U('index'),1);
+            $this->error('还原失败',U('recycle'),1);
         exit; 
     }
 
@@ -145,11 +145,11 @@ class ArticleController extends BaseController{
      *回收站删除
      */
     public function recycle_del($id){
-        $atricle_id=(int)$id;
+        $article_id=(int)$id;
         $model=D('Article');
-        if($model->delete($atricle_id))
-            $this->success('删除成功',U('index'),1);
+        if($model->delete($article_id))
+            $this->success('删除成功',U('recycle'),1);
         else
-            $this->error('删除失败',U('index'),1);
+            $this->error('删除失败',U('recycle'),1);
     }
 }

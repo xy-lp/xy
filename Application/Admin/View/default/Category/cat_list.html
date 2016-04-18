@@ -117,7 +117,7 @@
                                     <th>类别描述</th>
                                     <th>是否显示</th>
                                     <th>排序值</th>
-                                    <th style="width:15%">操作</th>
+                                    <th style="width:20%">操作</th>
                                 </tr>
                             </thead>
                             <tbody id="content">
@@ -132,6 +132,7 @@
                                     </td>
                                     <td><?php echo $v['sort_order']?></td>
                                     <td>
+										<a class="btn btn-white " href="__MODULE__/label/index/id/<?php echo $v['cat_id']?>"><i class="fa"></i>标签</a>
 										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['cat_id']?>"><i class="fa"></i>修改</a>
 										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['cat_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
                                     </td>

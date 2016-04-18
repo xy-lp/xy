@@ -139,7 +139,7 @@
                                     <td><?php echo $v['hits']?></td>
                                     <td>
 										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['article_id']?>"><i class="fa"></i>修改</a>
-										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['article_id']?>"><i class="fa"></i>删除</a>
+										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['article_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
@@ -232,7 +232,7 @@
 									+"<td>"+item.hits+"</td>"
                                     +"<td>"
 										+'<a class="btn btn-white" href="__URL__/edit/id/'+item.article_id+'"><i class="fa"></i>修改</a>'
-										+'<a class="btn btn-white" href="__URL__/del/id/'+item.article_id+'"><i class="fa"></i>删除</a>'
+										+'<a class="btn btn-white" href="__URL__/del/id/'+item.article_id+'" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>'
                                     +"</td>"
                                +"</tr>"
 								);

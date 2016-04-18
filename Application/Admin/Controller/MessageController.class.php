@@ -37,7 +37,7 @@ class MessageController extends BaseController{
      */
     public function del($id){
         $message_id=(int)$id; 
-        if(M('message')->delete($id))
+        if(M('message')->delete($message_id))
             $this->success('删除成功',U('index'),1);
         else 
             $this->error('删除失败',U('index'),1);

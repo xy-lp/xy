@@ -73,7 +73,7 @@ class LabelController extends BaseController{
                 $this->error('修改失败');
             exit;
         }
-        $label_id=I('get_id');
+        $label_id=I('get.id');
         $info=$model->find($label_id);
         $cat_list=D('Category')->get_cat_data();
         $this->assign('cat_list',$cat_list);

@@ -127,8 +127,8 @@
                                     <td><?php echo $v['visitor']?></td>
                                     <td><?php echo long2ip($v['visitor_ip'])?></td>
                                     <td>
-										<a class="btn btn-white " href="__URL__/details/id/<?php echo $v['message_id']?>"><i class="fa"></i>修改</a>
-										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['cat_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
+										<a class="btn btn-white " href="__URL__/details/id/<?php echo $v['message_id']?>"><i class="fa"></i>查看</a>
+										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['message_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
@@ -216,8 +216,8 @@
 									+"<td>"+item.visitor+"</td>"
 									+"<td>"+item.visitor_ip+"</td>"
                                     +"<td>"
-										+'<a class="btn btn-white" href="__URL__/message/id/'+item.message_id+'"><i class="fa"></i>修改</a>'
-										+'<a class="btn btn-white" href="__URL__/del/id/'+item.message_id+'"><i class="fa"></i>删除</a>'
+										+'<a class="btn btn-white" href="__URL__/details/id/'+item.message_id+'"><i class="fa"></i>查看</a>'
+										+'<a class="btn btn-white" href="__URL__/del/id/'+item.message_id+'"><i class="fa" onclick="if(confirm('确定删除！')==false)return false;"></i>删除</a>'
                                     +"</td>"
                                +"</tr>"
 								);

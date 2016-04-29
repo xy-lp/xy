@@ -32,7 +32,12 @@ class ArticleController extends BaseController{
         if(IS_POST){
             $model=D('Article');
             if($data=$model->create()){
-                if($model->add()){
+                $data['add_time']=time();
+                if(empty($data['cat_id'])){
+                    $this->error('请选择类别','',1);
+                }
+                //p($data);
+                if($model->add($data)){
                     $this->success('添加成功',U('index'));
                     exit;
                 }
@@ -41,7 +46,7 @@ class ArticleController extends BaseController{
             if(empty($error)){
                 $error='添加失败';
             }
-            $this->error($error);
+            $this->error($error,'',1);
         }
         //获取文章出处
         $sre_list=M('source')->field('sre_id,sre_name')->where(array('status'=>0))->order('sort_order')->select();
@@ -81,7 +86,7 @@ class ArticleController extends BaseController{
                     $this->success('修改成功',U('index'),1);
                     exit;
                 }else{
-                    $this->error('修改失败');
+                    $this->error('修改失败','',1);
                 }
             }else{
                 $this->error($model->getError());
@@ -151,5 +156,15 @@ class ArticleController extends BaseController{
             $this->success('删除成功',U('recycle'),1);
         else
             $this->error('删除失败',U('recycle'),1);
+    }
+
+    /*
+     * 查看文章
+     */
+    public function look($id){
+        $article_id=(int)$id;
+        $article_list=M('article')->where(array('article_id'=>$article_id))->find();
+        $this->assign('list',$article_list);
+        $this->display('look');
     }
 }

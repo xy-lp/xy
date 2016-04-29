@@ -24,8 +24,8 @@ class ArticleModel extends Model{
      *@attr $updateFields array 定义修改的字段名
      *注意：字段名和和数据库的字段名相同
      */
-    protected $insertFields=array('title','content','excerpt','author','add_time','sre_id','cat_id','img_path','stat    us','is_show','is_discuss','is_top');
-    protected $updateFields=array('title','content','excerpt','author','sre_id','cat_id','img_path','hits','midify_t    ime','status','is_show','is_discuss','is_top');
+    protected $insertFields=array('title','content','excerpt','author','add_time','sre_id','cat_id','img_path','status','is_show','is_discuss','is_top');
+    protected $updateFields=array('title','content','excerpt','author','sre_id','cat_id','img_path','hits','midify_time','status','is_show','is_discuss','is_top');
 
     /*
      *自动验证

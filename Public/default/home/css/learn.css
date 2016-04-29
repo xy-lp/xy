@@ -1,0 +1,19 @@
+@charset "gb2312";
+/* CSS Document */
+.visitors ul { margin: 20px 0 }
+.rnavs {
+width: 250px;
+margin: 0px 0;
+overflow: hidden;
+background: url(../images/6167.png)/*tpa=http://www.yangqq.com/skin/2014/images/6167.png*/ no-repeat left top rgb(209, 232, 226);
+opacity: 0;
+}
+.rnav { width: 250px; margin: 0px 0; overflow: hidden; background:url(../images/6167.png)/*tpa=http://www.yangqq.com/skin/2014/images/6167.png*/ no-repeat left top rgb(209, 232, 226);position: fixed; }
+.rnav h2,.rnavs h2{ font-size:14px; padding-left:40px; line-height:30px; height:30px; margin-bottom:10px}
+.rnav li,.rnavs li { width: 120px; text-align: center; display: inline-block; margin-bottom: 5px; margin-right: 5px; float: left; height: 40px; line-height: 38px }
+.rnav li a,.rnavs li a{ color: #333; display: block; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s ; border:#CCC 1px solid}
+aside .rnav ul li a:hover { background: rgba(255,255,255,0.2); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); }
+
+
+
+

@@ -1,13 +1,13 @@
-<!doctype html>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
 <html>
 <head>
     <title>goodbye Summer</title>
     <meta name="Keywords" content="" >
     <meta name="Description" content="" >
-    <link href="__HOME__/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Public/default/home/css/index.css" rel="stylesheet" type="text/css">
     <!--<link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>-->
     <!--[if lt IE 9]>
-    <script src="__HOME__/js/modernizr.js"></script>
+    <script src="/Public/default/home/js/modernizr.js"></script>
     <![endif]-->
 
     <style type="text/css">
@@ -41,14 +41,14 @@
         <li><a href="ablumlist.html">我的相册</a></li>
         <li><a href="book.html">留言版</a></li>
     </ul>
-    <script src="__HOME__/js/silder.js"></script><!--获取当前页导航 高亮显示标题-->
+    <script src="/Public/default/home/js/silder.js"></script><!--获取当前页导航 高亮显示标题-->
 </div>
 <div class="blank"></div>
 <div class="article">
     <div class="content">
         <div class="topblog">
             <h3><p>推荐文章 New Blog</p></h3>
-            <img src="__HOME__/images/03.jpg" alt="" title="" width="315" height="205">
+            <img src="/Public/default/home/images/03.jpg" alt="" title="" width="315" height="205">
             <ul>
                 <li><a href="/">女孩都有浪漫的小情怀<span>当玫瑰花瓣飘飞的那一刻，风会带走所有的想念...</span></a></li>
                 <li><a href="/">6月毕业季，祝福送给你<span>世界上最幸福世界上最幸福的国家世界上最幸福的国家的...</span></a></li>
@@ -59,7 +59,7 @@
             <!--article begin-->
             <ul>
                 <h3><a href="#" >【活动作品】柠檬绿兔小白个人博客模板</a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
+                <figure><img src="/Public/default/home/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
                 <span style="width:72%;float: right">
                     <p>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标签云...此作品设计图作者窦耀宇</p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
@@ -69,7 +69,7 @@
             </ul>
             <ul>
                 <h3><a href="#" >【活动作品】柠檬绿兔小白个人博客模板</a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
+                <figure><img src="/Public/default/home/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
                 <span style="width:72%;float: right">
                     <p>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标签云...此作品设计图作者窦耀宇</p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
@@ -79,7 +79,7 @@
             </ul>
             <ul>
                 <h3><a href="#" >【活动作品】柠檬绿兔小白个人博客模板</a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
+                <figure><img src="/Public/default/home/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
                 <span style="width:72%;float: right">
                     <p>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标签云...此作品设计图作者窦耀宇</p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
@@ -89,7 +89,7 @@
             </ul>
             <ul>
                 <h3><a href="#" >【活动作品】柠檬绿兔小白个人博客模板</a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
+                <figure><img src="/Public/default/home/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
                 <span style="width:72%;float: right">
                     <p>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标签云...此作品设计图作者窦耀宇</p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
@@ -99,7 +99,7 @@
             </ul>
             <ul>
                 <h3><a href="#" >【活动作品】柠檬绿兔小白个人博客模板</a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
+                <figure><img src="/Public/default/home/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" alt="【活动作品】柠檬绿兔小白个人博客模板">
                 <span style="width:72%;float: right">
                     <p>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标签云...此作品设计图作者窦耀宇</p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
@@ -113,7 +113,7 @@
                 <h2><a title="Web之路，经历了心酸之后" href="/"  target="_blank">Web之路，经历了心酸之后</a></h2>
                 <p>清理电脑里的时候，看到以前专业课的作业。看修改日期最早的一个压缩包还是06年的，7年的时间就这样过去了，这3年的学习成果就是这电脑里面的7个压缩包。</p>
                 <p>“什么是母校？母校就是那个你一天骂他八遍却不许别人骂一遍的地方”当听到不少学弟学妹在抱怨学校差的时候，至今我也没后悔过，因为我经历了我认为最苦的那一段时期。</p>
-                <figure><img src="__HOME__/images/02.jpg"></figure>
+                <figure><img src="/Public/default/home/images/02.jpg"></figure>
                 <p class="dateview"><span>2013-05-11</span><span>作者：杨青</span><span>分类：<a href="/" target="_blank">心得笔记</a></span><span>阅读(229)</span><span>评论(124)</span></p>
             </ul>-->
             <!--article end-->
@@ -145,19 +145,19 @@
                 var texts = "";
                 //这里设置调用标记
                 linkarr[1] = "http://www.yangqq.com";
-                picarr[1]  = "__HOME__/images/01.jpg";
+                picarr[1]  = "/Public/default/home/images/01.jpg";
                 textarr[1] = "Goodbye Summer 个人相册";
                 linkarr[2] = "http://www.yangqq.com";
-                picarr[2]  = "__HOME__/images/02.jpg";
+                picarr[2]  = "/Public/default/home/images/02.jpg";
                 textarr[2] = " Goodbye Summer 个人相册";
                 linkarr[3] = "http://www.yangqq.com";
-                picarr[3]  = "__HOME__/images/03.jpg";
+                picarr[3]  = "/Public/default/home/images/03.jpg";
                 textarr[3] = "Goodbye Summer 个人相册";
                 linkarr[4] = "http://www.yangqq.com";
-                picarr[4]  = "__HOME__/images/04.jpg";
+                picarr[4]  = "/Public/default/home/images/04.jpg";
                 textarr[4] = " Goodbye Summer 个人相册";
                 linkarr[5] = "http://www.yangqq.com";
-                picarr[5]  = "__HOME__/images/02.jpg";
+                picarr[5]  = "/Public/default/home/images/02.jpg";
                 textarr[5] = " Goodbye Summer 个人相册";
 
                 for(i=1;i<picarr.length;i++){
@@ -173,10 +173,10 @@
                     else texts += "|"+textarr[i];
                 }
                 document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
-                document.write('<param name="movie" value="__HOME__/images/bcastr3.swf"><param name="quality" value="high">');
+                document.write('<param name="movie" value="/Public/default/home/images/bcastr3.swf"><param name="quality" value="high">');
                 document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
                 document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'">');
-                document.write('<embed src="__HOME__/images/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'& menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
+                document.write('<embed src="/Public/default/home/images/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'& menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
             </script>
             <!-- 代码 结束 -->
         </div>

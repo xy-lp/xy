@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Y+ 月哥哥后援会</title>
+
+    <link rel="shortcut icon" href="__ADMIN__/favicon.ico"> <link href="__ADMIN__/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__ADMIN__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__ADMIN__/css/animate.min.css" rel="stylesheet">
+    <link href="__ADMIN__/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+    <style type="text/css">
+        table.imagetable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 0px;
+            border-color: #999999;
+            border-collapse: collapse;
+
+        }
+        table.imagetable th {
+
+            border-width: 0px;
+            padding: 10px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        table.imagetable td {
+
+            border-width: 1px;
+            padding: 10px;
+            border-style: dashed;
+            border-color: #999999;
+
+        }
+    </style>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>添加角色</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="__URL__/index">返回列表</a>
+                                </li>
+                                <li><a href="form_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="signupForm" method="post" action="__SELF__">
+                            <table border="0" cellspacing="0" width="70%" class="imagetable" cellpadding="0" align="center">
+                                <volist name="list" id="vo1">
+                                    <tr style="background: url(__ADMIN__/images/th.gif) repeat-x;">
+                                        <td nowrap=""  colspan="2" align="">
+                                            <input type='checkbox' name='authority_id[]' value='{$vo1.authority_id}'/>{$vo1.authority_name}
+                                            <!--<?php
+                                                 foreach($rule as $val){
+                                                    if($val==$vo1['ru_id'])
+                                                        echo "checked='checked'";
+                                                }?>/>-->
+                                        </td>
+                                    </tr>
+                                    <volist name="info" id="vo2">
+                                        <tr>
+                                            <if condition="$vo1['authority_id'] eq $vo2['pid']">
+                                                <td nowrap="" >&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type='checkbox' name='authority_id[]' value='{$vo2.authority_id}'/>{$vo2.authority_name}
+                                                    <!--<?php foreach($rule as $val){
+                                                        if($val==$vo2['ru_id'])
+                                                        echo "checked='checked'";
+                                                    }?>/>-->
+                                                </td>
+                                            </if>
+                                            <!--<td nowrap="" >
+                                              <volist name="action.child" id="vo">
+                                            <input type='checkbox' name='access[]' value='{$vo.id}'  <if condition="strstr($nod,$vo['id'])">checked='checked'</if>/>{$vo.title}
+                                                </volist>
+                                            </td>-->
+                                        </tr>
+                                    </volist>
+                                </volist>
+                            </table>
+                            <div class="form-group" style="margin-top: 5%">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <input type="hidden" name="role_id" value="<?php echo $role_id?>">
+                                    <button class="btn btn-primary" type="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__ADMIN__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__ADMIN__/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__ADMIN__/js/content.min.js?v=1.0.0"></script>
+    <script src="__ADMIN__/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="__ADMIN__/js/plugins/validate/messages_zh.min.js"></script>
+    <!--<script src="__ADMIN__/js/demo/form-validate-demo.min.js"></script>-->
+</body>
+
+</html>

@@ -32,21 +32,21 @@
                             <span><img alt="image" class="img-circle" src="__ADMIN__/img/profile_small.jpg" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                               <span class="block m-t-xs"><strong class="font-bold"><?php echo empty($name['nickname'])?$name['user_name'] : $name['nickname']?></strong></span>
+                                <span class="text-muted text-xs block"><?php echo $name['role_name']?><b class="caret"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                <li><a class="J_menuItem" href="__MODULE__/User/edit_photo">修改头像</a>
                                 </li>
-                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                <li><a class="J_menuItem" href="__MODULE__/User/user_info">个人资料</a>
                                 </li>
                                 <li><a class="J_menuItem" href="contacts.html">联系我们</a>
                                 </li>
-                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                <li><a class="J_menuItem" href="__MODULE__/User/modify_pwd">修改密码</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li><a href="__MODULE__/Login/safe_exit">安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,12 +54,12 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="__MODULE__/admin/admin">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">主页</span>
-                            <span class="fa arrow"></span>
+                            <!--<span class="fa arrow"></span>-->
                         </a>
-                        <ul class="nav nav-second-level">
+                        <!--<ul class="nav nav-second-level">
                             <li>
                                 <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
                             </li>
@@ -75,7 +75,7 @@
                             <li>
                                 <a href="index_v5.html" target="_blank">主页示例五</a>
                             </li>
-                        </ul>
+                        </ul>-->
 
                     </li>
                     <li>
@@ -135,7 +135,7 @@
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                         <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                             <div class="form-group">
-                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                                <input type="text" placeholder="欢迎来到月哥哥后援会~" class="form-control" name="top-search" id="top-search">
                             </div>
                         </form>
                     </div>
@@ -215,9 +215,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="hidden-xs">
+                       <!-- <li class="hidden-xs">
                             <a href="index_v1.html" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>
-                        </li>
+                        </li>-->
                         <li class="dropdown hidden-xs">
                             <a class="right-sidebar-toggle" aria-expanded="false">
                                 <i class="fa fa-tasks"></i> 主题
@@ -231,7 +231,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html" id="J_menuTab_index">首页</a>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -250,10 +250,10 @@
                         </li>
                     </ul>
                 </div>
-                <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a href="__MODULE__/Login/outLogin" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="__URL__/index1" frameborder="0" data-id="__URL__/index1" seamless></iframe>
             </div>
             <div class="footer">
 				<div class="pull-right">&copy; 2015-2016 <a href="#" target="_blank">月哥哥后援会～～</a>
@@ -272,14 +272,14 @@
                             <i class="fa fa-gear"></i> 主题
                         </a>
                     </li>
-                    <li class=""><a data-toggle="tab" href="#tab-2">
+                    <!--<li class=""><a data-toggle="tab" href="#tab-2">
                         通知
                     </a>
                     </li>
                     <li><a data-toggle="tab" href="#tab-3">
                         项目进度
                     </a>
-                    </li>
+                    </li>-->
                 </ul>
 
                 <div class="tab-content">
@@ -678,6 +678,17 @@
     <script src="__ADMIN__/js/hplus.min.js?v=4.0.0"></script>
     <script type="text/javascript" src="__ADMIN__/js/contabs.min.js"></script>
     <script src="__ADMIN__/js/plugins/pace/pace.min.js"></script>
+
+<script>
+    $(function(){
+        $('#J_menuTab_index').bind('click',function(){
+           $(".J_iframe").each(function(){
+              $(this).attr('style','display:none');
+           });
+            $("iframe[name=iframe0]").attr('style',null);
+        });
+    });
+</script>
 
 </body>
 

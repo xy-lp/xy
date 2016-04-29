@@ -112,28 +112,27 @@
                         <table class="table table-striped table-bordered table-hover " id="editable">
                             <thead>
                                 <tr>
-                                    <th>编号</th>
-                                    <th>类别名称</th>
-                                    <th>类别描述</th>
-                                    <th>是否显示</th>
-                                    <th>排序值</th>
-                                    <th style="width:15%">操作</th>
+                                    <th style="width:5%">编号</th>
+                                    <th style="width:10%">角色名</th>
+                                    <th>权限</th>
+                                    <th style="width:5%">状态</th>
+                                    <th style="width:23%">操作</th>
                                 </tr>
                             </thead>
                             <tbody id="content">
                             <!--data_table start-->
                             <?php foreach($list as $v):?>
                                 <tr class="gradeA">
-                                    <td><?php echo $v['cat_id']?></td>
-                                    <td><?php echo str_repeat('--',$v['deep']*4),$v['cat_name']?></td>
-                                    <td><?php echo $v['cat_desc']?></td>
+                                    <td><?php echo $v['role_id']?></td>
+                                    <td><?php echo $v['role_name']?></td>
+                                    <td><?php echo empty($v['rules'])?'暂无权限，请分配权限':$v['rules'];?></td>
                                     <td>
-                                        <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_show'])?'yes':'no';?>.gif"/>
+                                        <img alt="" src="__ADMIN__/img/<?php echo empty($v['status'])?'yes':'no';?>.gif"/>
                                     </td>
-                                    <td><?php echo $v['sort_order']?></td>
                                     <td>
-										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['cat_id']?>"><i class="fa"></i>修改</a>
-										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['cat_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
+                                        <a class="btn btn-white " href="__URL__/assign_rule/id/<?php echo $v['role_id']?>"><i class="fa"></i>分配权限</a>
+										<a class="btn btn-white " href="__URL__/edit/id/<?php echo $v['role_id']?>"><i class="fa"></i>修改</a>
+										<a class="btn btn-white " href="__URL__/del/id/<?php echo $v['role_id']?>" onclick="if(confirm('确定删除！')==false)return false;"><i class="fa"></i>删除</a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>

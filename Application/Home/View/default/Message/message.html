@@ -47,33 +47,35 @@
                     <div id="ds-reset">
                         <div class="ds-rounded" id="ds-hot-posts">
                             <div class="ds-header ds-gradient-bg">所有留言</div>
-                            <ul>
-                                <li data-post-id="1162829203884742914" class="ds-post">
-                                    <div data-source="duoshuo" data-root-id="0" data-thread-id="1162829203884737354" data-post-id="1162829203884742914" class="ds-post-self">
+                            <ul id="message_list">
+								<?php foreach($info['list'] as $v):?>
+                                <li class="ds-post">
+                                    <div data-source="duoshuo" data-root-id="0"  class="ds-post-self">
                                         <div data-user-id="12557479" class="ds-avatar">
-                                            <a title="疯狂的哈丘" onclick="this.href='http://yangqq.duoshuo.com/user-url/?user_id=12557479';" href="http://weibo.com/1879336321" target="_blank" rel="nofollow author">
-                                                <img alt="疯狂的哈丘" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1">
+                                            <a title="访客"  href="javascript:;" >
+                                                <img alt="访客" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1">
                                             </a>
                                         </div>
                                         <div class="ds-comment-body">
                                             <div class="ds-comment-header">
-                                                <a data-user-id="12557479" target="_blank" rel="nofollow" onclick="this.href='http://yangqq.duoshuo.com/user-url/?user_id=12557479';" href="http://weibo.com/1879336321" data-qqt-account="" class="ds-user-name ds-highlight">疯狂的哈丘
+                                                <a  href="javascript:;"  class="ds-user-name ds-highlight"><?PHP echo $v['visitor']?>
                                                 </a>
                                             </div>
-                                            <p>厉害，向博主学习</p>
+                                            <p><?PHP echo $v['message_content']?></p>
                                             <div class="ds-comment-footer ds-comment-actions">
-                                                <span title="2015年7月3日 下午3:00:49" datetime="2015-07-03T15:00:49+08:00" class="ds-time">2015年7月3日</span>
+                                                <span title="2015年7月3日 下午3:00:49" datetime="2015-07-03T15:00:49+08:00" class="ds-time"><?php echo date('Y-m-d',$v['message_time'])?></span>
 
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+								<?php endforeach;?>
                             </ul>
                         </div>
                         <div class="ds-comments-info">
                             <ul class="ds-comments-tabs">
                                 <li class="ds-tab">
-                                    <a href="javascript:void(0);" class="ds-comments-tab-duoshuo ds-current"><span class="ds-highlight">335</span>条评论</a>
+									<a href="javascript:void(0);" class="ds-comments-tab-duoshuo ds-current"><span class="ds-highlight"><?php echo $info['length']?></span>条评论</a>
                                 </li>
                             </ul>
                         </div>
@@ -110,45 +112,26 @@
             </div>
         </div>
     </div>
-    <aside class="navsidebar">
-        <h2><p>最新文章</p></h2>
+    <aside class="navsidebar" style="padding-top: 50px">
+        <h2><p>近期文章</p></h2>
         <ul class="news">
-            <li><a href="/">女孩都有浪漫的小情怀</a></li>
-            <li><a href="/">也许下个路口就会遇见希望</a></li>
-            <li><a href="/">6月毕业季，祝福送给你</a></li>
-            <li><a href="/">生活常有缺席的-可搞笑从来不缺席</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">妹妹，明天你就要嫁人啦</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
+            <?php foreach($now_list as $nv):?>
+            <li><a href="/"><?php echo $nv['title']?></a></li>
+            <?php endforeach;?>
+            <!--<li><a href="/">毕业生</a></li>
+            <li><a href="/">你本来就很美</a></li>
+            <li><a href="/">听说PHP</a></li>-->
         </ul>
-        <h2><p>点击排行</p></h2>
+        <h2><p>最热文章</p></h2>
         <ul class="news">
-            <li><a href="/">女孩都有浪漫的小情怀</a></li>
-            <li><a href="/">也许下个路口就会遇见希望</a></li>
-            <li><a href="/">6月毕业季，祝福送给你</a></li>
-            <li><a href="/">生活常有缺席的-可搞笑从来不缺席</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">妹妹，明天你就要嫁人啦</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-            <li><a href="/">为了一个不存在的梦，执念了那么多年</a></li>
-        </ul>
-        <h2><p>文章归档</p></h2>
-        <ul class="news">
-            <li><a href="/">2008 年三月</a></li>
-            <li><a href="/">2008 年四月</a></li>
-            <li><a href="/">2008 年六月</a></li>
+            <?php foreach($hits_list as $hv):?>
+            <li><a href="/"><?php echo $hv['title']?></a></li>
+            <?php endforeach;?>
         </ul>
         <h2><p>友情链接</p></h2>
         <ul class="news">
-            <li><a href="#">杨青个人博客</a></li>
+            <li><a href="http://www.lp.com">lpp个人博客</a></li>
         </ul>
-        <div class="share">
-            <h2></h2>
-        </div>
     </aside>
 </div>
 <div id="copright">Design by <a href="#" target="_blank">DanceSmile</a></div>
@@ -166,17 +149,27 @@
             if(!message){
                 return false;
             }
-            var param=new Array();
-            param['message']=message;
-            var form=('#message_form');
-            //console.log(message);
-            $.post('__MODULE__/Message/message',param,function(data){
-                alert(1111);
-                console.log(data);
+			$.post('__MODULE__/Message/message',{'message':message},function(data){
+				if(data && data.error===false){
+					$('#message_list').html('');
+					$.each(data.msg,function(){
+						var str='<li class="ds-post"><div class="ds-post-self"><div class="ds-avatar">'
+							+'<a title="疯狂的哈丘" rel="nofollow author"><img alt="疯狂的哈丘" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1"></a></div>'
+							+'<div class="ds-comment-body"><div class="ds-comment-header"><a data-qqt-account="" class="ds-user-name ds-highlight">疯狂的哈丘</a></div>'
+							+'<p>厉害，向博主学习</p>'
+							+'<div class="ds-comment-footer ds-comment-actions"><span title="2015年7月3日 下午3:00:49" datetime="2015-07-03T15:00:49+08:00" class="ds-time">2015年7月3日</span></div></div></div></li>';
+						
+						$('#message_list').append(str);
+						$('.ds-highlight').text(data.length);
+					});
+				}
             },'json');
+			$('textarea[name=message]').val('');
             //$(this).removeClass('active');
         });
     })
 </script>
+
+
 </body>
 </html>

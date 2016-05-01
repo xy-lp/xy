@@ -687,6 +687,13 @@
            });
             $("iframe[name=iframe0]").attr('style',null);
         });
+
+        $('.J_tabCloseAll').bind('click',function(){
+            $(".J_iframe").each(function(){
+                $(this).attr('style','display:none');
+            });
+            $("iframe[name=iframe0]").attr('style',null);
+        });
     });
 </script>
 

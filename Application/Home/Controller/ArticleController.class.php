@@ -18,21 +18,75 @@ class ArticleController extends BaseController{
     /*
      * 碎碎念
      */
-    public function part1(){
+    public function part1($page_id=1){
+        $top=$this->get_top_list();
+        $list= M('article')->order('article_id desc')->where(array('status'=>0,'is_show'=>0,'cat_id'=>$top[2]['cat_id']))->select();
+        foreach($list as $k => $v){
+            $cat=M('category')->field('cat_name')->find($v['cat_id']);
+            $source=M('source')->field('sre_name')->find($v['sre_id']);
+            $list[$k]['cat_name']=$cat['cat_name'];
+            $list[$k]['sre_name']=$source['sre_name'];
+        }
+        $data=data_page($list,$page_id);
+        $this->assign('cat_name',$top[2]['cat_name']);
+        $this->assign('list',$data['list']);
+        $this->assign('page',$data['page']);
         $this->display('part');
     }
 
     /*
      * 技术探讨
      */
-    public function part2(){
+    public function part2($type=false,$page_id=1){
+        //列表
+        $top=$this->get_top_list();
+        $top_id=$top[3]['cat_id'];
+        $top_childs=M('category')->field('cat_id')->where(array('cat_pid'=>$top_id))->select();
+        foreach($top_childs as $v){
+            $childs[]=$v['cat_id'];
+        }
+        $ids=$childs;
+        $ids[]=$top_id;
+        $part2=array(
+            'status'    =>array('eq','0'),
+            'is_show'   =>array('eq','0'),
+            'cat_id'    =>array('in',$ids),
+        );
+        $list= M('article')->order('article_id desc')->where($part2)->select();
+        foreach($list as $k => $v){
+            $cat=M('category')->field('cat_name')->find($v['cat_id']);
+            $source=M('source')->field('sre_name')->find($v['sre_id']);
+            $list[$k]['cat_name']=$cat['cat_name'];
+            $list[$k]['sre_name']=$source['sre_name'];
+        }
+        $data=data_page($list,$page_id);
+        $this->assign('cat_name',$top[2]['cat_name']);
+        $this->assign('list',$data['list']);
+        $this->assign('page',$data['page']);
+
+        //右导航
+        $left_list=M('category')->field('cat_id,cat_name,url')->order('sort_order')->where(array('is_show'=>0,'cat_pid'=>$top_id))->select();
+        $this->assign('left_list',$left_list);
+        //p($left_list);
         $this->display('list');
     }
 
     /*
      * 慢生活
      */
-    public function part3(){
+    public function part3($page_id=1){
+        $top=$this->get_top_list();
+        $list= M('article')->order('article_id desc')->where(array('status'=>0,'is_show'=>0,'cat_id'=>$top[4]['cat_id']))->select();
+        foreach($list as $k => $v){
+            $cat=M('category')->field('cat_name')->find($v['cat_id']);
+            $source=M('source')->field('sre_name')->find($v['sre_id']);
+            $list[$k]['cat_name']=$cat['cat_name'];
+            $list[$k]['sre_name']=$source['sre_name'];
+        }
+        $data=data_page($list,$page_id);
+        $this->assign('cat_name',$top[4]['cat_name']);
+        $this->assign('list',$data['list']);
+        $this->assign('page',$data['page']);
         $this->display('part');
     }
 

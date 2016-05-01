@@ -28,8 +28,8 @@ class CategoryModel extends Model{
      *@attr $updateFields array 定义修改的字段名
      *注意：字段名和数据库中的字段名一致
      */
-    protected $insertFields=array('cat_name','cat_pid','cat_desc','sort_order','is_show');
-    protected $updateFields=array('cat_name','cat_pid','cat_desc','sort_order','is_show');
+    protected $insertFields=array('cat_name','cat_pid','cat_desc','sort_order','is_show','url');
+    protected $updateFields=array('cat_name','cat_pid','cat_desc','sort_order','is_show','url');
 
     /*
      *自动验证
@@ -40,6 +40,7 @@ class CategoryModel extends Model{
         array('cat_name','','分类名称已存在!',0,'unique','self::MODEL_INSERT'),
         array('sort_order','number','排序值应为数字!'),
         array('is_show','array(0,1)',0,'请选择是否显示',3,'in'),
+        array('url','require','分类名称不能为空!'),
     );
 
     /*

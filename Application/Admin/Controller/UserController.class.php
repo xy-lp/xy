@@ -179,19 +179,31 @@ jump;
                 $this->error('登陆错误，请重新登陆后再试',U('Login/outLogin'),1);
             }
             $i=$model->find($uid);
+            //p($data);
+            $data['user_id']=$uid;
             if(!empty($i)){
-                $data['user_id']=$uid;
+                //p($data);
                 $bool['error']=$model->save($data);
-                $bool['msg']="修改成功";
+                if($bool['error']){
+                    $bool['msg']="修改成功";
+                }else{
+                    $bool['msg']=$model->getError();
+                }
             }else{
                 $bool['error']=$model->add($data);
-                $bool['msg']="添加成功";
+                if($bool['error']){
+                    $bool['msg']="添加成功";
+                }else{
+                    $bool['msg']=$model->getError();
+                }
             }
-            //p($data);
+            if(empty($bool['msg'])){
+                $bool['msg']="失败,请重试";
+            }
             if($bool['error'] !==false)
-                $this->success($bool['msg'],U('index'),1);
+                $this->success($bool['msg'],U('/index.php/admin/admin/admin'),1);
             else
-                $this->error('失败','',1);
+                $this->error($bool['msg'],'',1);
             exit;
         }
         $info=$model->find($uid);

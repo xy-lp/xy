@@ -24,7 +24,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins border-bottom">
                     <div class="ibox-title">
-                        <h5>jQuery Validate 简介</h5>
+                        <h5>类别列表 简介</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
@@ -44,17 +44,11 @@
                         </div>
                     </div>
                     <div class="ibox-content" style="display: none;">
-                        <p>jquery.validate.js 是一款优秀的jQuery表单验证插件。它具有如下特点：</p>
+                        <p>类别列表主要运用在如下地方：</p>
                         <ul>
-                            <li>安装简单</li>
-                            <li>内置超过20种数据验证方法</li>
-                            <li>直列错误提示信息</li>
-                            <li>可扩展的数据验证方法</li>
-                            <li>使用内置的元数据或插件选项来指定您的验证规则</li>
-                            <li>优雅的交互设计</li>
+                            <li>前端头部的导航</li>
+                            <li>发表文章时的类别</li>
                         </ul>
-                        <p>官网：<a href="http://jqueryvalidation.org/" target="_blank">http://jqueryvalidation.org/</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -115,6 +109,7 @@
                                     <th>编号</th>
                                     <th>类别名称</th>
                                     <th>类别描述</th>
+                                    <th>类别路径</th>
                                     <th>是否显示</th>
                                     <th>排序值</th>
                                     <th style="width:20%">操作</th>
@@ -127,6 +122,7 @@
                                     <td><?php echo $v['cat_id']?></td>
                                     <td><?php echo str_repeat('--',$v['deep']*4),$v['cat_name']?></td>
                                     <td><?php echo $v['cat_desc']?></td>
+                                    <td><?php echo $v['url']?></td>
                                     <td>
                                         <img alt="" src="__ADMIN__/img/<?php echo empty($v['is_show'])?'yes':'no';?>.gif"/>
                                     </td>
@@ -219,6 +215,7 @@
                                     +"<td>"+item.cat_id+"</td>"
                                     +"<td>"+item.sname+"</td>"
 									+"<td>"+item.cat_desc+"</td>"
+                                    +"<td><?php echo $v['url']?></td>"
 									+"<td><img alt='' src='"+"__ADMIN__"+"/img/"+item.status_img+".gif'/></td>"
 									+"<td>"+item.sort_order+"</td>"
                                     +"<td>"

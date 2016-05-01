@@ -4,7 +4,7 @@
 
     .bloglist h3:first-child a {
         color: #f00;
-        background: url(/skin/blog/images/new.gif) no-repeat 330px;
+        /*background: url(/skin/blog/images/new.gif) no-repeat 330px;*/
         display: block;
     }
     .bloglist figure img {
@@ -27,12 +27,9 @@
             <h3><p>推荐文章 New Blog</p></h3>
             <img src="__HOME__/images/03.jpg" alt="" title="" width="315" height="205">
             <ul>
-                <?php foreach($hit_list as $v):?>
-                    <li><a href="/"><?php echo $v['title']?><span><?php echo mb_substr($v['excerpt'],0,20),'...'?></span></a></li>
+                <?php foreach($top_article as $v):?>
+                    <li><a href="/"><?php echo $v['title']?><span><?php echo mb_substr($v['excerpt'],0,25),'...'?></span></a></li>
                 <?php endforeach;?>
-                <li><a href="/">细说PHP<span>PHP，一个嵌套的缩写名称，是英文...</span></a></li>
-                <li><a href="/">6月毕业生<span>也许长大是青春必经的溃烂...</span></a></li>
-                <li><a href="/">感恩生活<span></span></a></li>
             </ul>
         </div>
         <div class="bloglist">
@@ -40,9 +37,9 @@
             <?php foreach($list as $v1):?>
             <ul>
                 <h3><a href="#" ><?php echo '【',$v1['sre_name'],'】',$v1['title']?></a></h3>
-                <figure><img src="__HOME__/upload/article/2015-04-10/7d49c3bc8c69c01ece56611f5a7148be.png" />
+                <figure><img src="__PUBLIC__/Upload/<?php echo $v['img_path']?>" />
                 <span style="width:72%;float: right">
-                    <p><?php echo mb_substr($v1['excerpt'],0,50),'...'?></span></p>
+                    <p><?php echo mb_substr($v1['excerpt'],0,200),'...'?></span></p>
                     <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
                 </span></figure>
 
@@ -64,12 +61,13 @@
     <aside class="navsidebar">
         <nav>
             <ul>
-                <li class="ab"><a href="#" >你看我</a></li>
-                <li class="sy"><a href="#">碎碎念</a></li>
-                <li class="js"><a href="#">程序猿</a></li>
-                <li class="msh"><a href="#">慢生活</a></li>
-                <li class="xc"><a href="#">我的相册</a></li>
-                <li class="ly"><a href="#">留言版</a></li>
+                <?php
+                 $color_array=['ab','sy','js','msh','xc','ly'];
+                 foreach($top_list as $k => $v):
+                 ?>
+                <li class="<?php echo $color_array[$k]?>"><a href="<?php echo $v['url']?>"><?php echo $v['cat_name']?></a></li>
+                <?php endforeach;?>
+
             </ul>
         </nav>
         <div class="slide">
@@ -130,10 +128,10 @@
             <p class="address">现居：上海</p>
             <p class="role">职业：程序猿</p>
         </div>
-        <h2><p>博客分类</p></h2>
+        <h2><p>技术博客分类</p></h2>
         <ul class="news">
             <?php foreach($cat_list as $cv):?>
-                <li><a href="/"><?php echo $cv['cat_name']?>(3)</a></li>
+                <li><a href="/"><?php echo $cv['cat_name'],'(',$cv['num'],')';?></a></li>
             <?php endforeach;?>
             <!--<li><a href="/">慢生活(3)</a></li>
             <li><a href="/">程序人生(25)</a></li>
@@ -141,23 +139,26 @@
         </ul>
         <h2><p>近期文章</p></h2>
         <ul class="news">
-            <li><a href="/">毕业生</a></li>
+            <?php foreach($now_list as $nv):?>
+            <li><a href="/"><?php echo $nv['title']?></a></li>
+            <?php endforeach;?>
+            <!--<li><a href="/">毕业生</a></li>
             <li><a href="/">你本来就很美</a></li>
-            <li><a href="/">听说PHP</a></li>
+            <li><a href="/">听说PHP</a></li>-->
            </ul>
-        <h2><p>文章归档</p></h2>
+        <h2><p>最热文章</p></h2>
         <ul class="news">
-            <li><a href="/">2016 年二月</a></li>
-            <li><a href="/">2016 年三月</a></li>
-            <li><a href="/">2016 年四月</a></li>
+            <?php foreach($hits_list as $hv):?>
+            <li><a href="/"><?php echo $hv['title']?></a></li>
+            <?php endforeach;?>
         </ul>
         <h2><p>友情链接</p></h2>
         <ul class="news">
             <li><a href="http://www.lp.com">lpp个人博客</a></li>
         </ul>
-        <div class="share">
+        <!--<div class="share">
             <h2></h2>
-            <p><!-- Baidu Button BEGIN -->
+            <p><!-- Baidu Button BEGIN --
             <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
                 <a class="bds_tsina"></a>
                 <a class="bds_qzone"></a>
@@ -171,10 +172,10 @@
             <script type="text/javascript">
                 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
             </script>
-            <!-- Baidu Button END --></p>
-        </div>
+            <!-- Baidu Button END --</p>
+        </div>-->
     </aside>
 </div>
-<div id="copright">Design by <a href="http://www.yuegege.com" target="_blank">yuegege</a></div>
+<div id="copright">Design by <a href="/admin/login/login">yuegege</a></div>
 </body>
 </html>

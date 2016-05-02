@@ -63,7 +63,7 @@
                                             </div>
                                             <p><?PHP echo $v['message_content']?></p>
                                             <div class="ds-comment-footer ds-comment-actions">
-                                                <span title="2015年7月3日 下午3:00:49" datetime="2015-07-03T15:00:49+08:00" class="ds-time"><?php echo date('Y-m-d',$v['message_time'])?></span>
+                                                <span class="ds-time"><?php echo date('Y-m-d',$v['message_time'])?></span>
 
                                             </div>
                                         </div>
@@ -152,12 +152,12 @@
 			$.post('__MODULE__/Message/message',{'message':message},function(data){
 				if(data && data.error===false){
 					$('#message_list').html('');
-					$.each(data.msg,function(){
+					$.each(data.msg,function(i,item){
 						var str='<li class="ds-post"><div class="ds-post-self"><div class="ds-avatar">'
-							+'<a title="疯狂的哈丘" rel="nofollow author"><img alt="疯狂的哈丘" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1"></a></div>'
-							+'<div class="ds-comment-body"><div class="ds-comment-header"><a data-qqt-account="" class="ds-user-name ds-highlight">疯狂的哈丘</a></div>'
-							+'<p>厉害，向博主学习</p>'
-							+'<div class="ds-comment-footer ds-comment-actions"><span title="2015年7月3日 下午3:00:49" datetime="2015-07-03T15:00:49+08:00" class="ds-time">2015年7月3日</span></div></div></div></li>';
+							+'<a title="访客"  href="javascript:;" ><img alt="访客" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1"></a></div>'
+							+'<div class="ds-comment-body"><div class="ds-comment-header"><a  href="javascript:;"  class="ds-user-name ds-highlight">'+item.visitor+'</a></div>'
+							+'<p>'+item.message_content+'</p>'
+							+'<div class="ds-comment-footer ds-comment-actions"><span class="ds-time">'+item.message_time+'</span></div></div></div></li>';
 						
 						$('#message_list').append(str);
 						$('.ds-highlight').text(data.length);

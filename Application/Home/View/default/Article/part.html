@@ -41,20 +41,71 @@
             <h3><p><?php echo $cat_name?></p></h3>
         </div>
     </div>
-    <div class="bloglist">
+    <div id="bloglist" class="bloglist">
         <?php foreach($list as $v):?>
-            <ul class="arrow_box">
+            <ul class="arrow_box"><a href="/index.php/Home/Article/detail?id=<?php echo $v['article_id']?>">
                 <div class="sy"><p><img src="__PUBLIC__/Upload/<?php echo $v['img_path']?>"/><span style="font-size: 20px;color: red"><?php echo '【',$v['sre_name'],'】',$v['title']?></span></br><?php echo mb_substr($v['excerpt'],0,200),'...'?></p></div>
                 <span class="dateview"><?php echo date('Y-m-d',$v['add_time'])?></span>
-            </ul>
+            </a></ul>
         <?php endforeach;?>
     </div>
-    <div class="page">
-        <a class="page active" href="javascript:;">1</a>
-        <a class="page" href="javascript:;">2</a>
-    </div>
+
+    <!--page start-->
+    <include file="Public/page"/>
+    <!--page end-->
+
 </div>
 <div id="copright">Design by <a href="http://www.yangqq.com" target="_blank">yuegege</a></div>
+
+<script src="__ADMIN__/js/jquery.min.js?v=2.1.4"></script>
+<script>
+    $(document).ready(function(){
+        //点击页码的事件
+        $('.page').bind('click',function(){
+            var page_id = parseInt($(this).text());   //获取当前点击的页码值
+            var old_page=parseInt($('.active').text());
+            if(page_id == old_page){
+                return false;
+            }
+            ajax(page_id,$(this));      //参数:page 是点击的按钮(page:页码; next:下一页; prev:上一页)
+        });
+    });
+
+    //翻页操作的函数(与后台交互)
+    function ajax(page_id,btn_class){
+        //通过ajax将页码post提交到服务器端
+        $.post("__SELF__",{id:page_id},function(data){
+            $('#bloglist').html("");     //清空内容列表
+            var list=data.list;         //获取服务器返回的内容数据
+            var page=data.page;         //获取服务器返回的页码数据
+            //通过循环将内容数据显示到内容区域
+            $.each(list,function(i,item){
+                $("#bloglist").append(
+                        '<ul class="arrow_box"><a href="/index.php/Home/Article/detail?id='+item.article_id+'"><div class="sy"><p>'
+                        +'<img src="__PUBLIC__/Upload/'+item.img_path+'"/>'
+                        +'<span style="font-size: 20px;color: red">【'+item.sre_name+'】'+item.title+'</span></br>'+item.excerpt+'</p></div>'
+                        +'<span class="dateview">'+item.add_time+'</span>'
+                        +'</a></ul>'
+                );
+
+            });
+            //修改总页码数
+            $('#page_count').val(page.page_count);
+            var active=$('.active');    //获得被选中的页码元素
+            active.removeClass("active");   //清除页码被选中效果
+            //在对应的页码上加上选中的效果
+            if(btn_class == 'next'){
+                active.next().addClass("active");
+            }else if(btn_class == 'prev'){
+                active.prev().addClass("active");
+            }else{
+                btn_class.addClass("active");
+            }
+        },'json');
+    }
+
+</script>
+
 </body>
 </html>
 

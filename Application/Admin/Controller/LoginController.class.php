@@ -31,7 +31,7 @@ class LoginController extends Controller{
     }
     //执行登录操作
     public function checkLogin(){
-        if(IS_POST){
+        if(Is_POST){
             /*$verify=new Verify();
             //验证验证码是否正确
             if(!$verify->check(I('post.code'))){

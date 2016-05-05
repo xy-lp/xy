@@ -28,7 +28,7 @@
             <img src="__HOME__/images/03.jpg" alt="" title="" width="315" height="205">
             <ul>
                 <?php foreach($top_article as $v):?>
-                    <li><a href="/"><?php echo $v['title']?><span><?php echo mb_substr($v['excerpt'],0,25),'...'?></span></a></li>
+                    <li><a href="/index.php/Home/Article/detail?id=<?php echo $v['article_id']?>"><?php echo $v['title']?><span><?php echo mb_substr($v['excerpt'],0,25),'...'?></span></a></li>
                 <?php endforeach;?>
             </ul>
         </div>
@@ -40,10 +40,10 @@
                 <figure><img src="__PUBLIC__/Upload/<?php echo $v1['img_path']?>" />
                 <span style="width:72%;float: right">
                     <p><?php echo mb_substr($v1['excerpt'],0,200),'...'?></span></p>
-                    <a title="月哥哥国际后援会" href="/index.php/Home/Article/detail?id=<?php echo $v1['article_id']?>"  target="_blank" class="readmore">阅读全文>></a>
+                    <a title="月哥哥国际后援会" href="/index.php/Home/Article/detail?id=<?php echo $v1['article_id']?>"  class="readmore">阅读全文>></a>
                 </span></figure>
 
-                <p class="dateview"><span><?php echo date("Y-m-d",$v1['add_time'])?></span><span>作者：<?php echo $v1['author']?></span><span>个人博客：[<a href=/download/div/><?php echo $v1['cat_name']?></a>]</span></p>
+                <p class="dateview"><span><?php echo date("Y-m-d",$v1['add_time'])?></span><span>作者：<?php echo $v1['author']?></span><span>个人博客：[<a href="javascript:;"><?php echo $v1['cat_name']?></a>]</span></p>
             </ul>
             <?php endforeach;?>
             <!--article end-->
@@ -131,7 +131,7 @@
         <h2><p>技术博客分类</p></h2>
         <ul class="news">
             <?php foreach($cat_list as $cv):?>
-                <li><a href="/"><?php echo $cv['cat_name'],'(',$cv['num'],')';?></a></li>
+                <li><a href="javascript:;"><?php echo $cv['cat_name'],'(',$cv['num'],')';?></a></li>
             <?php endforeach;?>
             <!--<li><a href="/">慢生活(3)</a></li>
             <li><a href="/">程序人生(25)</a></li>
@@ -140,13 +140,13 @@
         <h2><p>近期文章</p></h2>
         <ul class="news">
             <?php foreach($now_list as $nv):?>
-            <li><a href="/"><?php echo $nv['title']?></a></li>
+            <li><a href="/index.php/Home/Article/detail?id=<?php echo $nv['article_id']?>"><?php echo $nv['title']?></a></li>
             <?php endforeach;?>
            </ul>
         <h2><p>最热文章</p></h2>
         <ul class="news">
             <?php foreach($hits_list as $hv):?>
-            <li><a href="/"><?php echo $hv['title']?></a></li>
+            <li><a href="/index.php/Home/Article/detail?id=<?php echo $hv['article_id']?>"><?php echo $hv['title']?></a></li>
             <?php endforeach;?>
         </ul>
         <h2><p>友情链接</p></h2>

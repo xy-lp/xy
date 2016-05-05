@@ -12,7 +12,7 @@ class ArticleController extends BaseController{
      * 你看我
      */
     public function about_me(){
-       $about=M('article')->where('cat_id=2')->find();//p($about);
+        $about=M('article')->where('cat_id=2')->find();//p($about);
         $this->assign('about',$about);
         $this->display('about');
     }
@@ -28,6 +28,13 @@ class ArticleController extends BaseController{
             $source=M('source')->field('sre_name')->find($v['sre_id']);
             $list[$k]['cat_name']=$cat['cat_name'];
             $list[$k]['sre_name']=$source['sre_name'];
+            $list[$k]['add_time']=date("Y-m-d",$v['add_time']);
+        }
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            echo json_encode($data);
+            exit;
         }
         $data=data_page($list,$page_id);
         $news=$this->get_new_list();
@@ -37,7 +44,7 @@ class ArticleController extends BaseController{
         $this->assign('page',$data['page']);
         $this->assign('news',$news);
         $this->assign('hots',$hots);
-        $this->display('list');
+        $this->display('part');
     }
 
     /*
@@ -64,11 +71,19 @@ class ArticleController extends BaseController{
             $source=M('source')->field('sre_name')->find($v['sre_id']);
             $list[$k]['cat_name']=$cat['cat_name'];
             $list[$k]['sre_name']=$source['sre_name'];
+            $list[$k]['add_time']=date("Y-m-d",$v['add_time']);
+        }
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            echo json_encode($data);
+            exit;
         }
         $data=data_page($list,$page_id);
         $this->assign('cat_name',$top[2]['cat_name']);
         $this->assign('list',$data['list']);
         $this->assign('page',$data['page']);
+        //p($data);
 
         //右导航
         $news=$this->get_new_list();
@@ -92,6 +107,13 @@ class ArticleController extends BaseController{
             $source=M('source')->field('sre_name')->find($v['sre_id']);
             $list[$k]['cat_name']=$cat['cat_name'];
             $list[$k]['sre_name']=$source['sre_name'];
+            $list[$k]['add_time']=date("Y-m-d",$v['add_time']);
+        }
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            echo json_encode($data);
+            exit;
         }
         $data=data_page($list,$page_id);
         $news=$this->get_new_list();
@@ -101,7 +123,7 @@ class ArticleController extends BaseController{
         $this->assign('page',$data['page']);
         $this->assign('news',$news);
         $this->assign('hots',$hots);
-        $this->display('list');
+        $this->display('part');
     }
 
     /**

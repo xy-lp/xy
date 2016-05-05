@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Y+ 月哥哥国际后援会~</title>
+    <title>Y+ 月哥哥后援会</title>
 
     <link rel="shortcut icon" href="__ADMIN__/favicon.ico">
     <link href="__ADMIN__/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
@@ -24,30 +24,18 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins border-bottom">
                     <div class="ibox-title">
-                        <h5>留言板简介</h5>
+                        <h5>留言模块 简介</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-down"></i>
                             </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="tabs_panels.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="tabs_panels.html#">选项1</a>
-                                </li>
-                                <li><a href="tabs_panels.html#">选项2</a>
-                                </li>
-                            </ul>
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
                         </div>
                     </div>
                     <div class="ibox-content" style="display: none;">
-                        <p>交流的重要性</p>
-                        <ul>
-                            <li>请认准月哥哥</li>
-                        </ul>
+                        <p>留言模块主要是管理用户的留言</p>
                     </div>
                 </div>
             </div>
@@ -61,15 +49,6 @@
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
                             </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="table_data_tables.html#">选项1</a>
-                                </li>
-                                <li><a href="table_data_tables.html#">选项2</a>
-                                </li>
-                            </ul>
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
@@ -210,7 +189,7 @@
 									+"<td>"+item.visitor_ip+"</td>"
                                     +"<td>"
 										+'<a class="btn btn-white" href="__URL__/details/id/'+item.message_id+'"><i class="fa"></i>查看</a>'
-										+'<a class="btn btn-white" href="__URL__/del/id/'+item.message_id+'"><i class="fa" onclick="if(confirm('确定删除！')==false)return false;"></i>删除</a>'
+										+'<a class="btn btn-white" href="__URL__/del/id/'+item.message_id+'"><i class="fa" onclick="if(confirm("+确定删除！+")==false)return false;"></i>删除</a>'
                                     +"</td>"
                                +"</tr>"
 								);

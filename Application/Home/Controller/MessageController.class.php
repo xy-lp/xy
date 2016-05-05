@@ -40,6 +40,7 @@ class MessageController extends BaseController{
         $this->assign('now_list',$now_list);
 
         $i=$this->get_list($page_id);
+        $this->assign('page',$i['page']);
 
         //最热文章
         $hits_list= $model->get_hits();
@@ -50,9 +51,26 @@ class MessageController extends BaseController{
 
     private function get_list($page_id=1){
         $list=M('Message')->order('message_id desc')->select();
+        /*if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            echo json_encode($data);
+            exit;
+        }*/
         $len=sizeof($list);
         $i=data_page($list,$page_id);
         $i['length']=$len;
         return $i;
+    }
+
+    public function message_page($page_id=1){
+        $list=M('Message')->order('message_id desc')->select();
+        if(IS_POST){
+            $page_id=I('post.id');
+            $data=data_page($list,$page_id);
+            echo json_encode($data);
+            exit;
+        }
+
     }
 }

@@ -1,0 +1,6 @@
+<div class="page">
+    <input type="hidden" id="page_count" value="<?php echo $page['page_count']?>">
+    <?php for($i=1;$i<=$page['page_count'];$i++){?>
+        <a class="page <?php if($page['page_id']==$i) echo 'active'?>" href="javascript:;"><?php echo $i?></a>
+    <?php } ?>
+</div>

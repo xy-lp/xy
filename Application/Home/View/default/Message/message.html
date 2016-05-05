@@ -26,6 +26,10 @@
         float: right;
         margin: 20px 0 0 0
     }
+    .active{
+        background:#333;
+        color:#FFF;
+    }
 </style>
 <!--head end-->
 
@@ -53,7 +57,7 @@
                                     <div data-source="duoshuo" data-root-id="0"  class="ds-post-self">
                                         <div data-user-id="12557479" class="ds-avatar">
                                             <a title="访客"  href="javascript:;" >
-                                                <img alt="访客" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1">
+                                                <img alt="访客" src="__HOME__/images/1.jpeg">
                                             </a>
                                         </div>
                                         <div class="ds-comment-body">
@@ -79,16 +83,15 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="ds-paginator">
+                        <!--分页-->
+                        <div class="page ds-paginator">
+                            <input type="hidden" id="page_count" value="<?php echo $page['page_count']?>">
                             <div class="ds-border"></div>
-                            <a class="ds-current" href="javascript:void(0);" data-page="1">1</a>
-                            <a href="javascript:void(0);" data-page="2">2</a>
-                            <a href="javascript:void(0);" data-page="3">3</a>
-                            <a href="javascript:void(0);" data-page="4">4</a>
-                            <a href="javascript:void(0);" data-page="5">5</a>
-                            <span class="page-break">...</span>
-                            <a href="javascript:void(0);" data-page="54">54</a>
+                            <?php for($i=1;$i<=$page['page_count'];$i++){?>
+                                <a class="page <?php if($page['page_id']==$i) echo 'active'?>" href="javascript:;"><?php echo $i?></a>
+                            <?php } ?>
                         </div>
+
                         <a name="respond"></a>
                         <div class="ds-replybox">
                             <a onclick="return false" href="javascript:void(0);" class="ds-avatar"><img alt="" src="https://avatar.duoshuo.com/avatar-50/587/39630.jpg"></a>
@@ -116,7 +119,7 @@
         <h2><p>近期文章</p></h2>
         <ul class="news">
             <?php foreach($now_list as $nv):?>
-            <li><a href="/"><?php echo $nv['title']?></a></li>
+            <li><a href="/index.php/Home/Article/detail?id=<?php echo $nv['article_id']?>"><?php echo $nv['title']?></a></li>
             <?php endforeach;?>
             <!--<li><a href="/">毕业生</a></li>
             <li><a href="/">你本来就很美</a></li>
@@ -125,7 +128,7 @@
         <h2><p>最热文章</p></h2>
         <ul class="news">
             <?php foreach($hits_list as $hv):?>
-            <li><a href="/"><?php echo $hv['title']?></a></li>
+            <li><a href="/index.php/Home/Article/detail?id=<?php echo $hv['article_id']?>"><?php echo $hv['title']?></a></li>
             <?php endforeach;?>
         </ul>
         <h2><p>友情链接</p></h2>
@@ -140,34 +143,74 @@
 <script>
     $(function(){
         $('.btn').bind('click',function(){
-
-            //if($(this).hasClass('active')){
-            //    return false;
-            //}
-            //$(this).addClass('active');
             var message=$('textarea[name=message]').val();
             if(!message){
                 return false;
             }
-			$.post('__MODULE__/Message/message',{'message':message},function(data){
-				if(data && data.error===false){
-					$('#message_list').html('');
-					$.each(data.msg,function(i,item){
-						var str='<li class="ds-post"><div class="ds-post-self"><div class="ds-avatar">'
-							+'<a title="访客"  href="javascript:;" ><img alt="访客" src="http://tp2.sinaimg.cn/1879336321/50/40015638599/1"></a></div>'
-							+'<div class="ds-comment-body"><div class="ds-comment-header"><a  href="javascript:;"  class="ds-user-name ds-highlight">'+item.visitor+'</a></div>'
-							+'<p>'+item.message_content+'</p>'
-							+'<div class="ds-comment-footer ds-comment-actions"><span class="ds-time">'+item.message_time+'</span></div></div></div></li>';
-						
-						$('#message_list').append(str);
-						$('.ds-highlight').text(data.length);
-					});
-				}
+            $.post('__MODULE__/Message/message',{'message':message},function(data){
+                if(data && data.error==false){
+                    $('#message_list').html('');
+
+                    $.each(data.msg,function(i,item){
+                        var str='<li class="ds-post"><div class="ds-post-self"><div class="ds-avatar">'
+                                +'<a title="访客"  href="javascript:;" ><img alt="访客" src="__HOME__/images/1.jpeg"></a></div>'
+                                +'<div class="ds-comment-body"><div class="ds-comment-header"><a  href="javascript:;"  class="ds-user-name ds-highlight">'+item.visitor+'</a></div>'
+                                +'<p>'+item.message_content+'</p>'
+                                +'<div class="ds-comment-footer ds-comment-actions"><span class="ds-time">'+item.message_time+'</span></div></div></div></li>';
+
+                        $('#message_list').append(str);
+                        $('.ds-highlight').text(data.length);
+                    });
+                }
             },'json');
-			$('textarea[name=message]').val('');
+            $('textarea[name=message]').val('');
             //$(this).removeClass('active');
         });
+
+        //点击页码的事件
+        $('.page').bind('click',function(){
+            var page_id = parseInt($(this).text());   //获取当前点击的页码值
+            var old_page=parseInt($('.active').text());
+            if(page_id == old_page){
+                return false;
+            }
+            ajax(page_id,$(this));      //参数:page 是点击的按钮(page:页码; next:下一页; prev:上一页)
+        });
     })
+
+    //翻页操作的函数(与后台交互)
+    function ajax(page_id,btn_class){
+        //通过ajax将页码post提交到服务器端
+        $.post("__MODULE__/Message/message_page",{id:page_id},function(data){
+            $('#message_list').html("");     //清空内容列表
+            var list=data.list;         //获取服务器返回的内容数据
+            var page=data.page;         //获取服务器返回的页码数据
+            //通过循环将内容数据显示到内容区域
+            $.each(list,function(i,item){
+                var str='<li class="ds-post"><div class="ds-post-self"><div class="ds-avatar">'
+                        +'<a title="访客"  href="javascript:;" ><img alt="访客" src="__HOME__/images/1.jpeg"></a></div>'
+                        +'<div class="ds-comment-body"><div class="ds-comment-header"><a  href="javascript:;"  class="ds-user-name ds-highlight">'+item.visitor+'</a></div>'
+                        +'<p>'+item.message_content+'</p>'
+                        +'<div class="ds-comment-footer ds-comment-actions"><span class="ds-time">'+item.message_time+'</span></div></div></div></li>';
+
+                $('#message_list').append(str);
+
+            });
+            //修改总页码数
+            $('#page_count').val(page.page_count);
+            var active=$('.active');    //获得被选中的页码元素
+            active.removeClass("active");   //清除页码被选中效果
+            //在对应的页码上加上选中的效果
+            if(btn_class == 'next'){
+                active.next().addClass("active");
+            }else if(btn_class == 'prev'){
+                active.prev().addClass("active");
+            }else{
+                btn_class.addClass("active");
+            }
+        },'json');
+    }
+
 </script>
 
 

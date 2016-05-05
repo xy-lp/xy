@@ -16,6 +16,13 @@ class BaseController extends Controller{
 
     protected function get_top_list(){
         $top_list=M('category')->field('cat_id,cat_name,url')->order('sort_order')->where(array('is_show'=>0,'cat_pid'=>0))->limit(6)->select();
+        if(!empty($top_list)){
+            foreach($top_list as $k => $v){
+                if($v['url'] != '/index.php'){
+                    $top_list[$k]['url']='/index.php'.$v['url'];
+                }
+            }
+        }
         return $top_list;
     }
 

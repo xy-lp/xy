@@ -38,10 +38,10 @@
             <h3><p>推荐文章 New Blog</p></h3>
         </div>
         <div class="index_about">
-            <h2 class="c_titile">【匆匆那些年】总结个人博客经历的这四年…</h2>
-            <p class="box_c"><span class="d_time">发布时间：2015-01-09</span><span>编辑：<a href='mailto:dancesmiling@qq.com'>杨青</a></span><span>阅读（<script src=%22-classid=8&id=740&addclick=1.js%22 tppabs="http://www.yangqq.com/e/public/ViewClick/?classid=8&id=740&addclick=1"></script>）</span></p>
-            <ul class="infos">
-                <p>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也有放弃过&hellip;但最后还是坚持了下来，时间如此匆匆，等再回过头已来不及去弥补&hellip;</p>
+            <h2 class="c_titile">{$info.title}</h2>
+            <p class="box_c"><span class="d_time"><?PHP echo date('Y-m-d',$info['add_time'])?></span><span>编辑：<a href='mailto:dancesmiling@qq.com'>{$info.author}</a></span><span>阅读({$info.hits})<!--（<script src=%22-classid=8&id=740&addclick=1.js%22 tppabs="http://www.yangqq.com/e/public/ViewClick/?classid=8&id=740&addclick=1"></script>）--></span></p>
+            <ul class="infos"> <?php echo htmlspecialchars_decode($info['content'])?>
+               <!-- <p>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也有放弃过&hellip;但最后还是坚持了下来，时间如此匆匆，等再回过头已来不及去弥补&hellip;</p>
                 <p>其实蛮遗憾的，话说这四年，并不是很专注于它，起初的建立是因为&ldquo;面子&rdquo;，一个网页设计师怎能没有一个属于自己的博客网站，域名几番斟酌选了yangqq(唯一用心的选了域名)，选好后，草草的用了两天时间，设计了一个简单的博客模板，接下来用了漏洞百出的asp程序(自己瞎改)，从网上copy了很多文章，放到网站上，就这样，我满心欢喜&hellip;博客从此也就搁置了。就像玩拼图，趁着三分热度和新奇，一鼓作气完成了，就随意的丢在犄角旮旯了，再也没有兴趣&hellip;</p>
                 <p><img src="bb9e1b25215426d6c375e453c756f136.jpg" tppabs="http://www.yangqq.com/d/file/jstt/bj/2015-01-09/bb9e1b25215426d6c375e453c756f136.jpg" alt="总结个人博客经历的这四年" width="510" height="339" /></p>
                 <p>直到我要利用它，博客搭建半年的时间，更新一两次，但是文章都乱七八糟，不是原创，偶尔会写写心情。从内容上来说，还是可以了。就这样，我骄傲的自以为是，拿着这样一个博客网站还有曾经做过的企业政府网站案例去朋友推荐的大公司应聘，最后我被无情的拒绝了，好在他们的技术人员也认真看了我的博客，告知我应该多注重div，css&hellip;其实我也有点儿不服气，甚至有点儿恼羞成怒，对他们说，&ldquo;我诚心加入，既然你们不需要，那这就是你们的损失！&rdquo;</p>
@@ -54,9 +54,9 @@
                 <p>于是我的博客多了个栏目，把自己擅长做得，喜欢的模板分享出来。没想到效果很明显，就连2000人的QQ群都不够用了&hellip;就这样坚持到现在，偶尔更新文章和分享模板，博客的权重，访问量都在一点一点增长，有人说我的博客不怎么更新，为什么权重还那么高？我说&ldquo;文章贵在精，而不在多&rdquo;。曾经我天天更新文章，但都是伪原创，自认为付出了那么多，肯定得有回报，其实不然。每天一篇伪原创还不及我一个月一篇原创文章效果好，因&ldquo;站&rdquo;而异吧。如果你每天都有自己的原创文章，那值得提倡，像我这种绞尽脑汁都出不了一个主题的，还是规矩的定时更新就行啦&hellip;</p>
                 <p>上个月还说博客突破600的平均访问量，这个月，又意外的发现，权重升到4，平均访问量达到了700多，最高能达到1000多&hellip;四年的时间了，博客一点一点的进步，虽说在职业优化师来看，我这不算什么，他们可能几个月时间就能做到，但是对我这一个seo外行人来看，这个慢慢成长进步的过程，是非常值得与享受的&hellip;</p><p align="center" class="pageLink"></p>
                 <iframe id="mood_frame" width="510" height="200" src="-classid=8&id=740" tppabs="http://www.yangqq.com/e/extend/mood/?classid=8&id=740" marginWidth=0 marginHeight=0 frameborder="0" scrolling="no"></iframe>
-            </ul>
+           --> </ul>
             <div class="keybq">
-                <p><span>关键字词</span>：个人博客</p>
+                <p><span>关键字词:</span>{$info.excerpt}</p>
             </div>
             <div class="ad"><script type="text/javascript">
                 /*自定义标签云myqq，创建于2013-8-2*/
@@ -65,11 +65,11 @@
                 <script src="c.js" type="text/javascript"></script>
 
             </div>
-            <div class="nextinfo">
+          <!--  <div class="nextinfo">
                 <p>上一篇：<a href="732.html">分享我的个人博客访问量如何做到IP从10到600的(图文)</a></p>
                 <p>下一篇：<a href="744.html">【郑重申明】本站只提供静态模板下载！</a></p>
-            </div>
-            <div class="otherlink">
+            </div>-->
+         <!--   <div class="otherlink">
                 <h2>相关文章</h2>
                 <ul>
                     <li><a href="739.html" title=" 2014年度优秀个人博客排名公布"> 2014年度优秀个人博客排名公布</a></li>
@@ -82,11 +82,11 @@
                     <li><a href="644.html" tppabs="http://www.yangqq.com/jstt/web/2014-01-18/644.html" title="我的个人博客之——阿里云空间选择">我的个人博客之——阿里云空间选择</a></li>
                     <li><a href="635.html" tppabs="http://www.yangqq.com/news/s/2014-01-08/635.html" title="个人博客从简不繁">个人博客从简不繁</a></li>
                 </ul>
-            </div>
+            </div>-->
             <div class="blank"></div>
         </div>
     </div>
-    <aside class="navsidebar">
+    <!--<aside class="navsidebar">
         <div style="margin-top: 0px">
             <div class="rnav">
                 <h2>栏目导航</h2>
@@ -149,13 +149,13 @@
         </ul>
         <h2><p>友情链接</p></h2>
         <ul class="news">
-            <li><a href="#">杨青个人博客</a></li>
+            <li><a href="#">月哥哥个人博客</a></li>
         </ul>
         <div class="share">
             <h2></h2>
         </div>
-    </aside>
+    </aside>-->
 </div>
-<div id="copright">Design by <a href="#" target="_blank">DanceSmile</a></div>
+<div id="copright">Design by <a href="#" target="_blank">yuegege</a></div>
 </body>
 </html>

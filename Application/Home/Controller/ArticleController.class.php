@@ -12,6 +12,8 @@ class ArticleController extends BaseController{
      * 你看我
      */
     public function about_me(){
+       $about=M('article')->where('cat_id=2')->find();//p($about);
+        $this->assign('about',$about);
         $this->display('about');
     }
 
@@ -28,10 +30,14 @@ class ArticleController extends BaseController{
             $list[$k]['sre_name']=$source['sre_name'];
         }
         $data=data_page($list,$page_id);
+        $news=$this->get_new_list();
+        $hots=$this->get_hot_list();
         $this->assign('cat_name',$top[2]['cat_name']);
         $this->assign('list',$data['list']);
         $this->assign('page',$data['page']);
-        $this->display('part');
+        $this->assign('news',$news);
+        $this->assign('hots',$hots);
+        $this->display('list');
     }
 
     /*
@@ -65,8 +71,12 @@ class ArticleController extends BaseController{
         $this->assign('page',$data['page']);
 
         //右导航
+        $news=$this->get_new_list();
+        $hots=$this->get_hot_list();
         $left_list=M('category')->field('cat_id,cat_name,url')->order('sort_order')->where(array('is_show'=>0,'cat_pid'=>$top_id))->select();
         $this->assign('left_list',$left_list);
+        $this->assign('news',$news);
+        $this->assign('hots',$hots);
         //p($left_list);
         $this->display('list');
     }
@@ -84,10 +94,14 @@ class ArticleController extends BaseController{
             $list[$k]['sre_name']=$source['sre_name'];
         }
         $data=data_page($list,$page_id);
+        $news=$this->get_new_list();
+        $hots=$this->get_hot_list();
         $this->assign('cat_name',$top[4]['cat_name']);
         $this->assign('list',$data['list']);
         $this->assign('page',$data['page']);
-        $this->display('part');
+        $this->assign('news',$news);
+        $this->assign('hots',$hots);
+        $this->display('list');
     }
 
     /**
@@ -95,16 +109,23 @@ class ArticleController extends BaseController{
      */
     public function detail(){
         $id=(int)I('get.id');
-
          if(!empty($id)){
-            $info=M('Article')->find();
+            $info=M('Article')->where('article_id='.$id)->find();
             if(empty($info)){
                 $this->error('not found','',1);
             }
          }else{
              $this->error('without id or id=0','',1);
          }
-        $this->assign('info',$info);
+        $hits=M('article')->where('article_id='.$id)->field('hits')->find();//p($hits);
+        $hits['hits']+=1;//p($hits['hits']);
+        M('article')->save(array(
+            'article_id'=>$id,
+            'hits'=>$hits['hits']
+        ));
+        $this->assign('info',$info);//p($info);
         $this->display();
     }
+
+
 }

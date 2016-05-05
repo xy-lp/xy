@@ -25,15 +25,16 @@ class IndexController extends BaseController {
         }
         $this->assign('top_article',$top_article);
 
-        //文章列表
-        $list= $model->order('add_time desc')->limit('5')->select();
+        //文章列表:最新的五篇
+        $list= $model->order('add_time desc')->limit('5')->select();//p($list);
         foreach($list as $k => $v){
             $cat=$cat_model->field('cat_name')->find($v['cat_id']);
             $source=M('source')->field('sre_name')->find($v['sre_id']);
             $list[$k]['cat_name']=$cat['cat_name'];
             $list[$k]['sre_name']=$source['sre_name'];
+            $list[$k]['img_path']=$v['img_path'];
         }
-        $data=data_page($list,$page_id);
+        $data=data_page($list,$page_id);//p($data['list']);
         $this->assign('list',$data['list']);
         //$this->assign('page',$data['page']);
 

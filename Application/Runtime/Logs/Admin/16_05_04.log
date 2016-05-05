@@ -1,0 +1,282 @@
+[ 2016-05-04T20:37:04+08:00 ] 127.0.0.1 /admin/admin/admin/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+
+[ 2016-05-04T20:37:06+08:00 ] 127.0.0.1 /index.php/admin/login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+NOTIC: [8] Undefined index: identity /Users/just/git/xy/Application/Admin/Controller/LoginController.class.php 第 13 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000233s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018290s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018402s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000879s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000957s ]
+
+[ 2016-05-04T20:37:10+08:00 ] 127.0.0.1 /index.php/Admin/Login/checkLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+NOTIC: [8] Use of undefined constant Is_POST - assumed 'Is_POST' /Users/just/git/xy/Application/Admin/Controller/LoginController.class.php 第 34 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `yp_user` WHERE `user_name` = 'admin' AND `status` = 0 LIMIT 1   [ RunTime:0.0039s ]
+SQL: UPDATE `yp_user` SET `user_name`='admin',`login_time`='1462365430',`login_ip`='2130706433' WHERE `user_name` = 'admin' [ RunTime:0.0102s ]
+SQL: SHOW COLUMNS FROM `yp_role` [ RunTime:0.0046s ]
+NOTIC: [8] Undefined index: role_id /Users/just/git/xy/Application/Admin/Controller/LoginController.class.php 第 76 行.
+SQL: SELECT `rules` FROM `yp_role` WHERE `role_id` = null LIMIT 1   [ RunTime:0.0032s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000128s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011666s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000203s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000542s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000596s ]
+
+[ 2016-05-04T20:37:11+08:00 ] 127.0.0.1 /index.php/Admin/Admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `yp_article` ORDER BY add_time desc LIMIT 8   [ RunTime:0.0036s ]
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0005s ]
+SQL: SELECT `user_name`,`user_role` FROM `yp_user` WHERE `user_id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `yp_user_info` [ RunTime:0.0035s ]
+SQL: SELECT `nickname` FROM `yp_user_info` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `yp_role` [ RunTime:0.0005s ]
+SQL: SELECT `role_name` FROM `yp_role` WHERE `role_id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yp_message` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `yp_message` ORDER BY message_id desc LIMIT 8   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000174s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013439s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013559s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000129s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000481s ]
+
+[ 2016-05-04T20:37:11+08:00 ] 127.0.0.1 /index.php/Admin/Admin/index1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `yp_article` ORDER BY article_id desc LIMIT 10   [ RunTime:0.0038s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000148s ]
+NOTIC: [8] Undefined variable: message /Users/just/git/xy/Application/Runtime/Cache/Admin/1fdde52903d44169493d9b81a7b17c9f.php 第 148 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035358s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035406s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000152s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000183s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000775s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000847s ]
+
+[ 2016-05-04T20:37:16+08:00 ] 127.0.0.1 /index.php/Admin/Article/index?v=4.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [2048] Declaration of Admin\Model\ArticleModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /Users/just/git/xy/Application/Admin/Model/ArticleModel.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `yp_article` WHERE ( status != 2 )  [ RunTime:0.0059s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000137s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019178s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019294s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000547s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000613s ]
+
+[ 2016-05-04T23:11:03+08:00 ] 127.0.0.1 /admin/admin/admin/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000639s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0121s ]
+SQL: SELECT * FROM `yp_article` ORDER BY add_time desc LIMIT 8   [ RunTime:0.0064s ]
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0011s ]
+SQL: SELECT `user_name`,`user_role` FROM `yp_user` WHERE `user_id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `yp_user_info` [ RunTime:0.0007s ]
+SQL: SELECT `nickname` FROM `yp_user_info` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `yp_role` [ RunTime:0.0008s ]
+SQL: SELECT `role_name` FROM `yp_role` WHERE `role_id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `yp_message` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yp_message` ORDER BY message_id desc LIMIT 8   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000166s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012750s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012888s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001784s ]
+
+[ 2016-05-04T23:11:03+08:00 ] 127.0.0.1 /index.php/Admin/Admin/index1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000424s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000507s ]
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `yp_article` ORDER BY article_id desc LIMIT 10   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000112s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000162s ]
+NOTIC: [8] Undefined variable: message /Users/just/git/xy/Application/Runtime/Cache/Admin/1fdde52903d44169493d9b81a7b17c9f.php 第 148 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019207s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019285s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000164s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000191s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000622s ]
+
+[ 2016-05-04T23:11:05+08:00 ] 127.0.0.1 /index.php/Admin/Article/index?v=4.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000522s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000636s ]
+NOTIC: [2048] Declaration of Admin\Model\ArticleModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /Users/just/git/xy/Application/Admin/Model/ArticleModel.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `yp_article` WHERE ( status != 2 )  [ RunTime:0.0055s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000119s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012075s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000563s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2016-05-04T23:11:07+08:00 ] 127.0.0.1 /index.php/Admin/Article/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `yp_source` [ RunTime:0.0005s ]
+SQL: SELECT `sre_id`,`sre_name` FROM `yp_source` WHERE `status` = 0 ORDER BY sort_order  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `yp_category` [ RunTime:0.0008s ]
+NOTIC: [8] Undefined variable: error /Users/just/git/xy/Application/Library/Web.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `yp_category` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `yp_category` WHERE ( 1 )  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+NOTIC: [8] Undefined variable: label_list /Users/just/git/xy/Application/Runtime/Cache/Admin/4ffab12185157fe73d18a5cae1eeaab4.php 第 108 行.
+NOTIC: [2] Invalid argument supplied for foreach() /Users/just/git/xy/Application/Runtime/Cache/Admin/4ffab12185157fe73d18a5cae1eeaab4.php 第 108 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011873s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011940s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000904s ]
+
+[ 2016-05-04T23:11:51+08:00 ] 127.0.0.1 /index.php/Admin/Article/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003810s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003522s ]
+NOTIC: [2048] Declaration of Admin\Model\ArticleModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /Users/just/git/xy/Application/Admin/Model/ArticleModel.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: validate /Users/just/git/xy/ThinkPHP/Library/Think/Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto /Users/just/git/xy/ThinkPHP/Library/Think/Model.class.php 第 1128 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given /Users/just/git/xy/ThinkPHP/Library/Think/Upload.class.php 第 170 行.
+SQL: INSERT INTO `yp_article` (`title`,`author`,`excerpt`,`content`,`sre_id`,`cat_id`,`add_time`,`is_show`,`is_discuss`,`is_top`,`img_path`) VALUES ('adad','adsa','asdasdasdsadadasdasdsasdasd','&lt;p&gt;&amp;nbsp;asdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasdasdasdasdsadadasdasdsasdasd&lt;/p&gt;','1','7','1462374711','0','0','1','Article/2016-05-04/572a113719d9f.png') [ RunTime:0.0066s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019769s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019851s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000716s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000786s ]
+
+[ 2016-05-04T23:11:52+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000279s ]
+NOTIC: [2048] Declaration of Admin\Model\ArticleModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /Users/just/git/xy/Application/Admin/Model/ArticleModel.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `yp_article` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_article` WHERE ( status != 2 )  [ RunTime:0.0050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020804s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020880s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003390s ]
+

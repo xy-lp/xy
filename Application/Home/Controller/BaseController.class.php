@@ -21,5 +21,21 @@ class BaseController extends Controller{
 
     public function system_path(){
         $web=new \Library\Web();
-    } 
+    }
+
+    /**
+     * 最新文章列表
+     */
+    public function get_new_list(){
+        $new=M('article')->order('article_id desc')->limit('3')->field('title')->select();
+        return $new;
+    }
+
+    /**
+     * 最热文章列表
+     */
+    public function get_hot_list(){
+        $hot=M('article')->order('hits desc')->limit(3)->field('title')->select();//p($hot);
+        return $hot;
+    }
 }

@@ -18,11 +18,18 @@ class AdminController extends BaseController{
 
     public function index1()
     {
-        $size=10;
+        $message=M('message')->order('message_time desc')->limit('5')->select();
+        $size=5;
         $article=M('Article')->order('article_id desc')->limit($size)->select();
         //p($article);
         $this->assign('article',$article);
+        $this->assign('message',$message);
         $this->display('index_v1');
+    }
+
+    public function test(){
+        $info=M('message')->order('message_time desc')->limit('5')->select();p($info);
+        $this->assign('info',$info);
     }
 
 }

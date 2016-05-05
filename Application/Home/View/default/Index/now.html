@@ -37,10 +37,10 @@
             <?php foreach($list as $v1):?>
             <ul>
                 <h3><a href="#" ><?php echo '【',$v1['sre_name'],'】',$v1['title']?></a></h3>
-                <figure><img src="__PUBLIC__/Upload/<?php echo $v['img_path']?>" />
+                <figure><img src="__PUBLIC__/Upload/<?php echo $v1['img_path']?>" />
                 <span style="width:72%;float: right">
                     <p><?php echo mb_substr($v1['excerpt'],0,200),'...'?></span></p>
-                    <a title="【活动作品】柠檬绿兔小白个人博客模板" href="#"  target="_blank" class="readmore">阅读全文>></a>
+                    <a title="月哥哥国际后援会" href="/index.php/Home/Article/detail?id=<?php echo $v1['article_id']?>"  target="_blank" class="readmore">阅读全文>></a>
                 </span></figure>
 
                 <p class="dateview"><span><?php echo date("Y-m-d",$v1['add_time'])?></span><span>作者：<?php echo $v1['author']?></span><span>个人博客：[<a href=/download/div/><?php echo $v1['cat_name']?></a>]</span></p>
@@ -142,9 +142,6 @@
             <?php foreach($now_list as $nv):?>
             <li><a href="/"><?php echo $nv['title']?></a></li>
             <?php endforeach;?>
-            <!--<li><a href="/">毕业生</a></li>
-            <li><a href="/">你本来就很美</a></li>
-            <li><a href="/">听说PHP</a></li>-->
            </ul>
         <h2><p>最热文章</p></h2>
         <ul class="news">
@@ -176,6 +173,6 @@
         </div>-->
     </aside>
 </div>
-<div id="copright">Design by <a href="/admin/login/login">yuegege</a></div>
+<div id="copright">Design by <a href="/index.php/admin/login/login">yuegege</a></div>
 </body>
 </html>

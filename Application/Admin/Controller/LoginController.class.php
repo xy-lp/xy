@@ -20,7 +20,7 @@ class LoginController extends Controller{
                 $data['login_ip']=ip2long($_SERVER['SERVER_ADDR']);   //获取当前的ip地址
                 $model->where(array('user_name'=>$info['user_name']))->save($data);   //将数据库中登录时候和ip地址更新
                 //获取账号权限，并写入session
-                $rule=M('role')->field('rules')->where(array('role_id'=>$info['role_id']))->find();    //获取账号相应的权限
+                $rule=M('role')->field('rules')->where(array('role_id'=>$info['user_role']))->find();    //获取账号相应的权限
                 session('rules',$rule['rules']);      //将账号的权限保存到session中
                 session('uid',$info['user_id']);  //将账号保存到session中
                 $this->redirect('Admin/admin');
@@ -42,7 +42,9 @@ class LoginController extends Controller{
             $map['user_name']=I('post.username');
             $password=I('post.password');
             if($map['user_name'] == C('username') && $password == C('password')){
+                $rule=M('role')->field('rules')->find();    //获取账号相应的权限
                 session('uid','-1');  //将账号保存到session中
+                session('rules',$rule['rules']);
                 $this->success('特殊账号',U('Admin/admin'),1);
                 exit;
             }
@@ -73,7 +75,7 @@ class LoginController extends Controller{
             $data['login_ip']=ip2long($_SERVER['SERVER_ADDR']);   //获取当前的ip地址
             $model->where(array('user_name'=>$data['user_name']))->save($data);   //将数据库中登录时候和ip地址更新
             //获取账号权限，并写入session
-            $rule=M('role')->field('rules')->where(array('role_id'=>$i['role_id']))->find();    //获取账号相应的权限
+            $rule=M('role')->field('rules')->where(array('role_id'=>$i['user_role']))->find();    //获取账号相应的权限
             session('rules',$rule['rules']);      //将账号的权限保存到session中
             //session('username',$data['user_name']);  //将账号保存到session中
             session('uid',$i['user_id']);  //将账号保存到session中

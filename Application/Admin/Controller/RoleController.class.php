@@ -98,6 +98,11 @@ class RoleController extends BaseController{
         $info=$auth_model->where($map)->select();
         //$role_list=$auth_model->where(array('pid'=>0))->select();
         //$role_info=$auth_model->where('pid' != 0)->select();
+        $auth_array=M('role')->field('rules')->find($role_id);
+        $role_auth=explode(',',$auth_array['rules']);
+        $this->assign('role_auth',$role_auth);
+        //p($auth);
+
         $this->assign('list',$list);
         $this->assign('info',$info);
         $this->assign('role_id',$role_id);

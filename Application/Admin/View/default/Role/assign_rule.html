@@ -62,7 +62,13 @@
                                 <volist name="list" id="vo1">
                                     <tr style="background: url(__ADMIN__/images/th.gif) repeat-x;">
                                         <td nowrap=""  colspan="2" align="">
-                                            <input type='checkbox' name='authority_id[]' value='{$vo1.authority_id}'/>{$vo1.authority_name}
+                                            <input type='checkbox' class="" name='authority_id[]' value='{$vo1.authority_id}'
+                                            <?php
+                                                 foreach($role_auth as $val){
+                                                    if($val==$vo1['authority_id'])
+                                                        echo "checked='checked'";
+                                                }?>/>
+                                            {$vo1.authority_name}
                                             <!--<?php
                                                  foreach($rule as $val){
                                                     if($val==$vo1['ru_id'])
@@ -74,11 +80,12 @@
                                         <tr>
                                             <if condition="$vo1['authority_id'] eq $vo2['pid']">
                                                 <td nowrap="" >&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <input type='checkbox' name='authority_id[]' value='{$vo2.authority_id}'/>{$vo2.authority_name}
-                                                    <!--<?php foreach($rule as $val){
-                                                        if($val==$vo2['ru_id'])
+                                                    <input type='checkbox' name='authority_id[]' value='{$vo2.authority_id}'
+                                                    <?php foreach($role_auth as $val){
+                                                        if($val==$vo2['authority_id'])
                                                         echo "checked='checked'";
-                                                    }?>/>-->
+                                                    }?>
+                                                    />{$vo2.authority_name}
                                                 </td>
                                             </if>
                                             <!--<td nowrap="" >
@@ -108,6 +115,12 @@
     <script src="__ADMIN__/js/plugins/validate/jquery.validate.min.js"></script>
     <script src="__ADMIN__/js/plugins/validate/messages_zh.min.js"></script>
     <!--<script src="__ADMIN__/js/demo/form-validate-demo.min.js"></script>-->
+
+    <script>
+        $(function(){
+
+        });
+    </script>
 </body>
 
 </html>

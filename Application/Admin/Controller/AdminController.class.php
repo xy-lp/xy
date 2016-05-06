@@ -3,9 +3,17 @@ namespace Admin\Controller;
 use Think\Controller;
 class AdminController extends BaseController{
     public function admin(){
-        //最新文章
-        //$article=M('Article')->order('add_time desc')->limit(8)->select();
-        //$this->assign('article',$article);
+        //获取用户的权限循环出左导航栏
+        $rule=session('rules');
+        $rules=array();
+        if(!empty($rule)){
+            $rule_array=explode(',',$rule);
+            foreach($rule_array as $v){
+                $tmp=M('authority')->field('authority_id,authority_name,pid,url')->find($v);
+                $rules[]=$tmp;
+            }
+        }
+        $this->assign('rules',$rules);
 
         //当前用户名
         $name=M('user')->field('user_name,user_role')->where(array('user_id'=>session('uid')))->find();

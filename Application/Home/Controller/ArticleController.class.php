@@ -80,7 +80,7 @@ class ArticleController extends BaseController{
             exit;
         }
         $data=data_page($list,$page_id);
-        $this->assign('cat_name',$top[2]['cat_name']);
+        $this->assign('cat_name',$top[3]['cat_name']);
         $this->assign('list',$data['list']);
         $this->assign('page',$data['page']);
         //p($data);

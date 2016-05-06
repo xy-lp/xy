@@ -12,6 +12,7 @@ class IndexController extends BaseController {
         $top_article= $model->order('article_id desc')->where(array('is_top'=>0,'status'=>0,'is_show'=>0))->limit('3')->select();
         if(sizeof($top_article)<3){
             $limit=3-sizeof($top_article);
+            $ids=array(0);
             foreach($top_article as $v){
                 $ids[]=$v['article_id'];
             }
